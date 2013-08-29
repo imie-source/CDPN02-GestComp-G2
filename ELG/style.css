@@ -19,10 +19,14 @@
 
 /* CSS pour le Header de la page */
 #header{
+	margin: 10px 0px 100px 0px;
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.blocHeader{
 	background-image: url('image/back.png');
 	background-repeat:no-repeat;
 	background-position:center center;
-	margin: 10px 0px 100px 0px;
 }
 
 .header{
@@ -59,7 +63,6 @@
 	height: 50px;
 }
 .menu{
-
 }
 .menuTitre{
 
@@ -68,6 +71,11 @@
 
 }
 
+#aside{	
+	background-color:#0f3f98;
+	border-radius: 10px;
+	padding-left: 10px;
+}
 /* CSS pour le contenu de la page */
 #section{
 }
