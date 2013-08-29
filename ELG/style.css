@@ -1,0 +1,23 @@
+#body{
+	width:900px;
+	padding: 0;
+	margin: 0;
+}
+
+.header{
+display: inline;
+}
+.headId{
+display: inline-block;
+}
+#header{
+background-image: url('image/background_color.jpg');
+background-repeat:no-repeat;
+background-position:center center;
+padding-bottom: 10px;
+}
+
+#section{
+clear:both;
+
+}
