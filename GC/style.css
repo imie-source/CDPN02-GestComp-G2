@@ -1,0 +1,127 @@
+html
+{
+	font-family: Arial;
+	background-color: #f3f2f0;
+}
+
+body
+{
+	height: 1000px;
+	width: 1000px;
+	margin: auto;
+}
+
+#header
+{
+	height: 110px;
+	width: 1000px;
+	border-bottom: 1px solid #a3a2a1;
+}
+
+#logo
+{
+	position: absolute;
+	padding-top: 15px;
+}
+
+#logo a:hover
+{
+	opacity: 0.5;
+}
+
+#title
+{
+	position: absolute;
+	text-align: center;
+	padding-top: 40px;
+	padding-left: 250px;
+	font-size: 35px;
+	color: #056180;
+}
+
+#account
+{
+	position: absolute;
+	padding-top: 35px;
+	margin-left: 900px;
+}
+
+#menu
+{
+	height: 40px;
+	width: 1000px;
+	color: #000000;
+	margin-top: 100px;
+	padding-top : 30px;
+	text-align : center;
+	font-size: 22px;
+	position: absolute;
+}
+
+#menu img
+{
+	height: 20px;
+	width: 25px;
+}
+
+#menu img:hover
+{
+	opacity: 0.5;
+}
+
+#menu a
+{
+	color: #a3a2a1;
+	text-decoration: none;
+}
+
+#menu a:hover
+{
+	color: #00976a;
+}
+
+#location
+{
+	height: 40px;
+	width: 150px;
+	color: #000000;
+	margin-top: 100px;
+	padding-top : 50px;
+	font-size: 12px;
+	position: absolute;
+}
+
+#location a
+{
+	color: #000000;
+}
+
+#location a:hover
+{
+	color: #e55000;
+}
+
+#content
+{
+	height: 600px;
+	width: 1000px;
+	text-align : center;
+	font-size: 22px;
+	margin-top: 170px;
+	padding-top: 300px;
+	border: 1px solid #a3a2a1;
+	position: absolute;
+}
+
+#footer
+{
+	height: 30px;
+	width: 1000px;
+	margin-top: 1080px;
+	padding-top: 20px;
+	color: #000000;
+	text-align: center;
+	font-size: 22px;
+	border-top: 1px solid #a3a2a1;
+	position: absolute;
+}
