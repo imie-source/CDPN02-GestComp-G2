@@ -1,0 +1,17 @@
+body {
+	margin : 50px;
+}
+
+#logoIMIE {
+	width : 500px;
+	position : absolute;
+	
+}
+
+#mainTitle {
+	width : 500px;
+	height : 79px;
+	margin-left : 500px;
+	padding-top : 10px;
+	text-align : center;
+}

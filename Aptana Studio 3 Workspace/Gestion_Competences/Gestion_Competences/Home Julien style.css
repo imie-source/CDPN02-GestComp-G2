@@ -1,0 +1,14 @@
+.header {
+	background-image:url('banner.jpg');
+	background-size:100%;
+}
+	
+.banner-title{
+	text-align:center;
+	color:white
+}
+
+.logo{
+	float:top;
+}
+
