@@ -8,55 +8,97 @@
 </head>
 <body id="body">
 
-<header id="header">
+<header id="header"> <!-- En-tête du site-->
 	<div class="header">
-		<div id="headLogoImie" class="headImg header"><img src="image\logo-imie_0.png" alt="logo de l'imie"/></div>
-		<div id="headTitre" class="header"><h1 class="header titre">Gestion des compétences</h1></div>
-		<div id="headId" class="header headId">
-			<p class="header">Lambda</p><br />
+		<div id="headLogoImie" class="headImg header left"><img src="image\logo-imie_1.png" alt="logo de l'imie"/></div>
+		<div id="headTitre" class="header left"><h1 class="header titre">Gestion des compétences</h1></div>
+		<div id="headId" class="header headId right">
+			<p class="header">Lambda</p>
 			<a class="header" href="">Mon compte/Mes projets</a>
 		</div>	
 	</div>
 </header>
 
-<section id="section"><!--Corps de la page d'accueil -->
-	<nav id="menu" class="menu">
-		<div class="menuListe">
+<div id="content">
+	
+<nav id="menu" class="menu"> <!-- Menu de navigation  du site-->
+		<div class="menuListe left">
 			<a href="">Accueil</a>
 			<a href="">Projets</a>
 			<a href="">Utilisateurs</a>
 			<a href="">Compétences</a>
 		</div>
-		<div id="recherche" class="menuRecherche">
+		<div id="recherche" class="menuRecherche right">
 			<form>
 				<input type="search" name="recherche" placeholder="Recherche"/>
 				<input class="buton" type="submit" value="OK"/>
 			</form>
 		</div>
-	</nav>
-	
+</nav>
+
+<aside>
 	<div class="filAriane">	<!-- fil d'ariane-->
-		<p>Vous êtes içi:</p><a href="">Accueil</a>
+		<p>Vous êtes içi: <a href="">Accueil</a></p>
+	</div>	
+	<div class="news" id="news"> <!-- bloc News-->
+		<p>Les news de l'utilisateur</p>
 	</div>
-	
+</aside>
+<section id="section"><!--Corps de la page d'accueil -->
+
 	<div class="projets">
-		<div class="projetsEnCours"> <!--Projets en cours -->
+		<div id="projetsEnCours" class="projetsEnCours left"> <!--Projets en cours -->
 			<h4>Projets en cours</h4>
+			<div id="projet1" class="projet">
+				<h6>Projet 1 en cours</h6>
+				<p>Eminuit autem inter humilia supergressa iam impotentia fines mediocrium delictorum nefanda Clematii cuiusdam Alexandrini nobilis mors repentina;
+					cuius socrus cum misceri sibi generum, flagrans eius amore, non impetraret, ut ferebatur, per palatii pseudothyrum introducta, oblato pretioso 
+					reginae monili id adsecuta est, ut ad Honoratum tum comitem orientis formula missa letali omnino scelere nullo contactus idem 
+					Clematius nec hiscere nec loqui permissus occideretur.
+				</p>
+			</div>
+			
+			<div id="projet2" class="projet">
+			<h6>Projet 2 en cours</h6>
+				<p>Eminuit autem inter humilia supergressa iam impotentia fines mediocrium delictorum nefanda Clematii cuiusdam Alexandrini nobilis mors repentina;
+					cuius socrus cum misceri sibi generum, flagrans eius amore, non impetraret, ut ferebatur, per palatii pseudothyrum introducta, oblato pretioso 
+					reginae monili id adsecuta est, ut ad Honoratum tum comitem orientis formula missa letali omnino scelere nullo contactus idem 
+					Clematius nec hiscere nec loqui permissus occideretur.
+				</p>
+			</div>
 		</div>
 		
-		<div class="projetsProposes"> <!--Projets proposés -->
+		<div id="projetsProposes" class="projetsProposes right"> <!--Projets proposés -->
 			<h4>Projets proposés</h4>
+			<div id="projetCompatible1" class="projet">
+				<p>Vous pouvez apportez vos compétences aux projets suivants:</p>
+			</div>
+			
+			<div id="projetCompatible2" class="projet">
+			<h6>Projet 2 </h6>
+				<p>Projet proposé par: user</p>
+				<p>Chef du projet: user</p>
+				<p>Tache en lien avec vos compétences:</p>
+				<p>Tache1</p>
+
+			</div>
+			
+			<div id="projetCompatible3" class="projet">
+				<h6>Projet 3 </h6>
+			</div>
+			<div id="projetCompatible4" class="projet">
+				<h6>Projet 4 </h6>
+			</div>
 		</div>
 		
 	</div>
 </section>
 	
-<footer>
+<footer>	<!-- Pied de page du site-->
 	<div id="footer">
 		<p>Footer</p>
 	</div>
-	
 </footer>
-
+</div>
 </body>
 </html>

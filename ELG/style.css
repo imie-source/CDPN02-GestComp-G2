@@ -1,54 +1,62 @@
 #body{
-	width:900px;
-	padding: 0;
+	width:960px;
+	padding: 0px;
 	margin: 20px 200px;
-
 	border: 1px solid #000000;
+	background-color: #f3f2f0;
+	color: white;
+
 }
+
+.left{
+	float:left;
+}
+
+.right{
+	float: right;
+}
+
+
 /* CSS pour le Header de la page */
 #header{
-background-repeat:no-repeat;
-background-position:center center;
-padding-bottom: 10px;
-width: auto;
-border: 1px solid #000000;
+	background-image: url('image/back.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	margin: 10px 0px 100px 0px;
 }
 
 .header{
-display: inline;
 }
 
 #headLogoImie{
 
 }
 #headTitre{
-
+	width:500px;
 }
 
 #headId{
-position: absolute;
-margin-top: 20px;
-margin-left:200px;
 }
 
 .headId{
-display: inline-block;
 }
 
 .titre{
+	text-align:center;
 }
 
-
-
-/* CSS pour le contenu de la page */
-#section{
-	
+#content{
+	padding: 10px;
+	clear:both;
+	background-image: url('image/background_content.png');
 }
 
+/* CSS pour le menu de la page */
 #menu{
-border: 1px solid #000000;
-height: 50px;
-
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	padding-top: 10px;
+	height: 50px;
 }
 .menu{
 
@@ -60,9 +68,26 @@ height: 50px;
 
 }
 
-/* CSS pour le footer de la page */
+/* CSS pour le contenu de la page */
+#section{
+}
+.projet{
+	background-color:#e55000;
+	border: 1px solid black;
+	border-radius: 10px;
+}
 
+#projetsEnCours{
+	width:49%;
+}
+
+#projetsProposes{
+	width:49%;
+}
+
+/* CSS pour le footer de la page */
 #footer{
-border: 1px solid #000000;
+	clear:both;
+	border-top: 1px solid #000000;
 	text-align: center;
 }
