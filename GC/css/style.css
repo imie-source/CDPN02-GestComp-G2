@@ -1,0 +1,185 @@
+html
+{
+	font-family: Arial;
+	background-color: #f3f2f0;
+}
+
+body
+{
+	height: 1000px;
+	width: 1000px;
+	margin: auto;
+}
+
+#header
+{
+	height: 110px;
+	width: 1000px;
+	border-bottom: 1px solid #a3a2a1;
+}
+
+#logo
+{
+	position: absolute;
+	padding-top: 15px;
+}
+
+#logo a:hover
+{
+	opacity: 0.5;
+}
+
+#title
+{
+	position: absolute;
+	text-align: center;
+	padding-top: 40px;
+	margin-left: 250px;
+	font-size: 35px;
+}
+
+#account
+{
+	position: absolute;
+	padding-top: 35px;
+	margin-left: 900px;
+} 
+
+#account img:hover{
+	opacity: 0.5;
+}
+
+#menu
+{
+	height: 40px;
+	width: 1000px;
+	color: #000000;
+	padding-top : 30px;
+	text-align : center;
+	font-size: 22px;
+	position: absolute;
+}
+
+#menu img
+{
+	height: 20px;
+	width: 25px;
+}
+
+#menu img:hover
+{
+	opacity: 0.5;
+}
+
+#menu a
+{
+	color: #a3a2a1;
+	text-decoration: none;
+}
+
+#menu a:hover
+{
+	color: #00976a;
+}
+
+#search
+{
+	position: absolute;
+	padding-top: 30px;
+	margin-left: 800px;
+}
+
+#location
+{
+	height: 40px;
+	width: 150px;
+	color: #000000;
+	padding-top : 70px;
+	font-size: 12px;
+	position: absolute;
+}
+
+#location a
+{
+	color: #000000;
+}
+
+#location a:hover
+{
+	color: #e55000;
+}
+
+#content
+{
+	height: 700px;
+	width: 1000px;
+	text-align : center;
+	font-size: 22px;
+	margin-top: 90px;
+	padding-top: 10px;
+	background-color: #ffffff;
+	border: 1px solid #a3a2a1;
+	position: absolute;
+}
+
+#content p
+{
+	padding-top: 35px;
+	text-align: center;
+}
+
+#news
+{
+	height: 90px;
+	width: 980px;
+	margin-left: 10px;
+	position: absolute;
+	background-color: #056180;
+	border: 1px solid #a3a2a1;
+}
+
+#projects
+{
+	height: 590px;
+	width: 485px;
+	margin-left: 10px;
+	margin-top: 100px;
+	position: absolute;
+	background-color: #00976a;
+	border: 1px solid #a3a2a1;
+}
+
+#suggestionProjects
+{
+	height: 590px;
+	width: 485px;
+	margin-left: 505px;
+	margin-top: 100px;
+	position: absolute;
+	background-color: #e55000;
+	border: 1px solid #a3a2a1;
+}
+
+#footer
+{
+	height: 30px;
+	width: 1000px;
+	margin-top: 790px;
+	padding-top: 20px;
+	color: #000000;
+	text-align: center;
+	font-size: 22px;
+	position: absolute;
+}
+
+#footer img
+{
+	height: 50px;
+	width: 50px;
+	border: 1px solid #a3a2a1;
+}
+
+#footer img:hover
+{
+	opacity: 0.5;
+}
