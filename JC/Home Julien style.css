@@ -1,0 +1,59 @@
+html
+{
+	font-family: Arial;
+	background-color: #f3f2f0;
+}
+
+body
+{
+	height: 1000px;
+	width: 1000px;
+	margin: auto;
+}
+
+#header{
+	height: 210px;
+	width: 1000px;
+	border-bottom: 1px solid #a3a2a1;
+	background-image: url('banner.jpg');
+}
+
+#logo{
+	float: left;
+	padding-top: 50px;
+	padding-left: 50px;
+}
+
+#title{
+	float: center;
+	text-align: center;
+}
+
+#user{
+	float: right;
+	text-align: center;
+}
+
+#content
+{
+	height: 750px;
+	width: 1000px;
+	text-align : center;
+	font-size: 22px;
+	margin-top: 170px;
+	padding-top: 300px;
+	position: absolute;
+}
+
+#footer
+{
+	height: 30px;
+	width: 1000px;
+	margin-top: 1080px;
+	padding-top: 20px;
+	color: #000000;
+	text-align: center;
+	font-size: 22px;
+	border-top: 1px solid #a3a2a1;
+	position: absolute;
+}
