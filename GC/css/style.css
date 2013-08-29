@@ -141,13 +141,6 @@ body
 	text-align: center;
 }
 
-#content p
-{
-	padding: 20px;
-	font-size: 20px;
-	text-align: justify;
-}
-
 #content div
 {
 	border: 1px solid #a3a2a1;
@@ -164,6 +157,13 @@ body
 	border: 1px solid #a3a2a1;
 }
 
+#news p
+{
+	padding-left: 10px;
+	font-size: 12px;
+	text-align: left;
+}
+
 #projects
 {
 	height: 590px;
@@ -175,6 +175,13 @@ body
 	border: 1px solid #a3a2a1;
 }
 
+#projects p
+{
+	padding: 20px;
+	font-size: 20px;
+	text-align: justify;
+}
+
 #suggestionProjects
 {
 	height: 590px;
@@ -184,6 +191,13 @@ body
 	position: absolute;
 	background-color: #e55000;
 	border: 1px solid #a3a2a1;
+}
+
+#suggestionProjects p
+{
+	padding: 20px;
+	font-size: 20px;
+	text-align: justify;
 }
 
 #footer
