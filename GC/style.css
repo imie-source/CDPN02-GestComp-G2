@@ -34,7 +34,7 @@ body
 	position: absolute;
 	text-align: center;
 	padding-top: 40px;
-	padding-left: 250px;
+	margin-left: 250px;
 	font-size: 35px;
 	color: #056180;
 }
@@ -51,7 +51,7 @@ body
 	height: 40px;
 	width: 1000px;
 	color: #000000;
-	margin-top: 100px;
+	margin-top: 110px;
 	padding-top : 30px;
 	text-align : center;
 	font-size: 22px;
@@ -80,12 +80,19 @@ body
 	color: #00976a;
 }
 
+#search
+{
+	position: absolute;
+	margin-top: 140px;
+	margin-left: 800px;
+}
+
 #location
 {
 	height: 40px;
 	width: 150px;
 	color: #000000;
-	margin-top: 100px;
+	margin-top: 120px;
 	padding-top : 50px;
 	font-size: 12px;
 	position: absolute;
@@ -103,25 +110,63 @@ body
 
 #content
 {
-	height: 600px;
+	height: 700px;
 	width: 1000px;
 	text-align : center;
 	font-size: 22px;
-	margin-top: 170px;
-	padding-top: 300px;
+	margin-top: 190px;
+	padding-top: 10px;
+	background-color: #ffffff;
 	border: 1px solid #a3a2a1;
 	position: absolute;
+}
+
+#content p
+{
+	padding-top: 35px;
+	text-align: center;
+}
+
+#news
+{
+	height: 90px;
+	width: 980px;
+	margin-left: 10px;
+	position: absolute;
+	background-color: #056180;
+	border: 1px solid #a3a2a1;
+}
+
+#projects
+{
+	height: 590px;
+	width: 485px;
+	margin-left: 10px;
+	margin-top: 100px;
+	position: absolute;
+	background-color: #00976a;
+	border: 1px solid #a3a2a1;
+}
+
+#suggestionProjects
+{
+	height: 590px;
+	width: 485px;
+	margin-left: 505px;
+	margin-top: 100px;
+	position: absolute;
+	background-color: #e55000;
+	border: 1px solid #a3a2a1;
 }
 
 #footer
 {
 	height: 30px;
 	width: 1000px;
-	margin-top: 1080px;
+	margin-top: 900px;
 	padding-top: 20px;
 	color: #000000;
 	text-align: center;
 	font-size: 22px;
-	border-top: 1px solid #a3a2a1;
 	position: absolute;
 }
