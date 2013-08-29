@@ -13,6 +13,7 @@ body
 
 #header
 {
+	position: absolute;
 	height: 110px;
 	width: 1000px;
 	border-bottom: 1px solid #a3a2a1;
@@ -41,11 +42,19 @@ body
 #account
 {
 	position: absolute;
+	text-align: center;
 	padding-top: 35px;
-	margin-left: 900px;
-} 
+	margin-left: 890px;
+}
 
-#account img:hover{
+#account img
+{
+	height: 50px;
+	width: 50px;
+}
+
+#account img:hover
+{
 	opacity: 0.5;
 }
 
@@ -54,6 +63,7 @@ body
 	height: 40px;
 	width: 1000px;
 	color: #000000;
+	margin-top: 110px;
 	padding-top : 30px;
 	text-align : center;
 	font-size: 22px;
@@ -86,6 +96,7 @@ body
 {
 	position: absolute;
 	padding-top: 30px;
+	margin-top: 110px;
 	margin-left: 800px;
 }
 
@@ -94,6 +105,7 @@ body
 	height: 40px;
 	width: 150px;
 	color: #000000;
+	margin-top: 100px;
 	padding-top : 70px;
 	font-size: 12px;
 	position: absolute;
@@ -115,17 +127,31 @@ body
 	width: 1000px;
 	text-align : center;
 	font-size: 22px;
-	margin-top: 90px;
+	margin-top: 200px;
 	padding-top: 10px;
 	background-color: #ffffff;
 	border: 1px solid #a3a2a1;
+	border-radius: 15px;
 	position: absolute;
+}
+
+#content h1
+{
+	padding-top: 10px;
+	text-align: center;
 }
 
 #content p
 {
-	padding-top: 35px;
-	text-align: center;
+	padding: 20px;
+	font-size: 20px;
+	text-align: justify;
+}
+
+#content div
+{
+	border: 1px solid #a3a2a1;
+	border-radius: 15px;
 }
 
 #news
@@ -164,9 +190,8 @@ body
 {
 	height: 30px;
 	width: 1000px;
-	margin-top: 790px;
+	margin-top: 900px;
 	padding-top: 20px;
-	color: #000000;
 	text-align: center;
 	font-size: 22px;
 	position: absolute;
@@ -177,6 +202,7 @@ body
 	height: 50px;
 	width: 50px;
 	border: 1px solid #a3a2a1;
+	border-radius: 15px;
 }
 
 #footer img:hover
