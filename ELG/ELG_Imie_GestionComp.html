@@ -10,9 +10,9 @@
 
 <header id="header">
 	<div class="header">
-		<img id="logoImie" class="headImg" src="image\logo-imie_0.png" alt="logo de l'imie"/>
-		<h1 class="header titre">Gestion des compténces</h1>
-		<div class="header headId">
+		<div id="headLogoImie" class="headImg header"><img src="image\logo-imie_0.png" alt="logo de l'imie"/></div>
+		<div id="headTitre" class="header"><h1 class="header titre">Gestion des compétences</h1></div>
+		<div id="headId" class="header headId">
 			<p class="header">Lambda</p><br />
 			<a class="header" href="">Mon compte/Mes projets</a>
 		</div>	
@@ -20,13 +20,14 @@
 </header>
 
 <section id="section"><!--Corps de la page d'accueil -->
-	<nav>
-		<div>
+	<nav id="menu" class="menu">
+		<div class="menuListe">
 			<a href="">Accueil</a>
 			<a href="">Projets</a>
 			<a href="">Utilisateurs</a>
 			<a href="">Compétences</a>
-
+		</div>
+		<div id="recherche" class="menuRecherche">
 			<form>
 				<input type="search" name="recherche" placeholder="Recherche"/>
 				<input class="buton" type="submit" value="OK"/>
@@ -35,20 +36,27 @@
 	</nav>
 	
 	<div class="filAriane">	<!-- fil d'ariane-->
-		<p> Vous êtes içi:</p><a href="">Accueil</a>
+		<p>Vous êtes içi:</p><a href="">Accueil</a>
 	</div>
+	
+	<div class="projets">
+		<div class="projetsEnCours"> <!--Projets en cours -->
+			<h4>Projets en cours</h4>
+		</div>
+		
+		<div class="projetsProposes"> <!--Projets proposés -->
+			<h4>Projets proposés</h4>
+		</div>
+		
+	</div>
+</section>
+	
+<footer>
+	<div id="footer">
+		<p>Footer</p>
+	</div>
+	
+</footer>
 
-	<div class="projetsEnCours"> <!--Projets en cours -->
-	<h4>Projets en cours</h4>
-	</div>
-	
-	<div class="projetsProposes"> <!--Projets proposés -->
-	
-	<h4>Projets proposés</h4>
-	</div>
-	</section>
-	
-	<footer>
-	</footer>
 </body>
 </html>

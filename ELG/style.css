@@ -1,23 +1,68 @@
 #body{
 	width:900px;
 	padding: 0;
-	margin: 0;
+	margin: 20px 200px;
+
+	border: 1px solid #000000;
+}
+/* CSS pour le Header de la page */
+#header{
+background-repeat:no-repeat;
+background-position:center center;
+padding-bottom: 10px;
+width: auto;
+border: 1px solid #000000;
 }
 
 .header{
 display: inline;
 }
+
+#headLogoImie{
+
+}
+#headTitre{
+
+}
+
+#headId{
+position: absolute;
+margin-top: 20px;
+margin-left:200px;
+}
+
 .headId{
 display: inline-block;
 }
-#header{
-background-image: url('image/background_color.jpg');
-background-repeat:no-repeat;
-background-position:center center;
-padding-bottom: 10px;
+
+.titre{
 }
 
-#section{
-clear:both;
 
+
+/* CSS pour le contenu de la page */
+#section{
+	
+}
+
+#menu{
+border: 1px solid #000000;
+height: 50px;
+
+}
+.menu{
+
+}
+.menuTitre{
+
+}
+.menuRecherche{
+
+}
+
+/* CSS pour le footer de la page */
+
+#footer{
+border: 1px solid #000000;
+	text-align: center;
 }
