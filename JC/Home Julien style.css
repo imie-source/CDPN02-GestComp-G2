@@ -35,9 +35,11 @@ p{
 
 header{
 	width: 1000px;
+	height: 100px;
 	margin: 0 auto;
 	display: table;
-	background: url('banner.jpg');
+	background-image: url('banner.jpg');
+	background-size: 100%;
 }
 
 header #content{
@@ -51,6 +53,9 @@ header #content{
 header img{
   	margin:0 0;
 	padding: 0 0;
+	position: relative;
+	left: 10px;
+	top: 10px;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -58,6 +63,9 @@ header img{
 header #title{
 	padding: 0 0;
 	margin: 0 0;
+	position: relative;
+	left: 150px;
+	top: 10px;
 	display: inline-block;
 	text-align: center;
 }
@@ -65,6 +73,9 @@ header #title{
 header #menu_user{
 	margin: 0 0;
 	padding: 0 0;
+	position: relative;
+	left: 150px;
+	bottom: 75px;
 	display: table-cell;
 	vertical-align: bottom;
 	min-width: 350px;
@@ -73,12 +84,12 @@ header #menu_user{
 header #menu_user a{
 	vertical-align: middle;
 	display: table-cell;
-	height: 45px;
-	width: 110px;
+	height: 25px;
+	width: 80px;
 	color: #000000;
-	border-right: solid 0.5px #B4B3B1;
+	border-right: solid 0.5px white;
 	text-decoration: none;
-	background-color: #d8d8FF;
+	background-color: white;
 }
 
 header #menu_user_buttons{
@@ -89,43 +100,68 @@ header #menu_user_buttons{
 }
 
 header #menu_user a:hover{
-	background-color: #d8d8d8;
+	background-color: #00976a;
 	color: #000000;
 }
 header #menu_user a:first-child{
-	border-radius: 8px 0 0 0;
+	border-radius: 0 0 0 8px;
 }
 header #menu_user a:last-child{
 	border-right: none;
-	border-radius: 0 8px 0 0;
+	border-radius: 0 0 8px 0;
 }
 
 /* MENU */
 
 nav{
-	height: 50px;
 	width: 1000px;
 	margin: 0 auto;
+	padding-top: 2px;
+	background-color: #d8d8d8;
+}
+
+nav ul{
+	height: 30px;
+	margin: 0 0;
+	padding: 0 0;
+	background-color: #000000;
+	text-align: right;
+	padding-right: 17px;
+}
+nav li{
+	display: inline-block;
+	list-style-type: none;
+	vertical-align: middle;
 	text-align: center;
-	background-color: #d8d8d8;
+}
+nav li a{
+	vertical-align: middle;
+	display: table-cell;
+	color: #ffffff;
+	height: 25px;
+	min-width: 120px;
+	text-decoration: none;
+}
+nav li a:hover{
+	background-color: #0f3f98;
+	color: white;
 }
 
-nav #home_icon{
-	margin: 0 0;
-	padding: 0 0;
-	width:25px;
+nav li form{
+	display: table-cell;
+	height: 20px;
+	vertical-align: middle;
+	width: 100%;
 }
-
-nav #boutons_menu{
-	margin: 0 0;
-	padding: 0 0;
-	width:500px;
-	background-color: #d8d8d8;
+nav li form input[type="text"]{
+	height: 20px;
+	padding: 0px 0px;
+	border-radius: 8px 8px;
 }
-
-nav #recherche{
-	margin: 0 auto;
-	padding: 0 0;
+nav li form input[type="submit"]{
+	height: 20px;
+	border: none;
+	border-radius: 8px 8px;
 }
 
 /* SECTION */
