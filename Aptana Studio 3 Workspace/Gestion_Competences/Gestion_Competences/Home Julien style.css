@@ -1,14 +1,13 @@
-.header {
-	background-image:url('banner.jpg');
-	background-size:100%;
+.logo {
+	position: absolute;
 }
 	
-.banner-title{
+.title{
 	text-align:center;
 	color:white
 }
 
-.logo{
+.user{
 	float:top;
 }
 
