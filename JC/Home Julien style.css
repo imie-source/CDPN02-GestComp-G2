@@ -1,59 +1,157 @@
-html
-{
-	font-family: Arial;
-	background-color: #f3f2f0;
-}
+@CHARSET "UTF-8";
 
-body
-{
-	height: 1000px;
-	width: 1000px;
+/*
+* bleu : 48b9c7;
+* jaune : #fdb515;
+* gris: #B4B3B1;
+* rouge: #ee3124;
+*/
+
+/* Mise en forme générale */
+body{
 	margin: auto;
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+}
+.bold{
+	font-weight: bold;
+}
+h2{
+	padding: 0 0;
+	margin: 0 0 10px 0;
+	text-transform: uppercase;
+}
+h3, h4{
+	padding: 0 0;
+	margin: 0 0;
+}
+p{
+	padding: 0 0;
+	margin: 0 0;
 }
 
-#header{
-	height: 210px;
+
+/* HEADER */
+
+header{
 	width: 1000px;
-	border-bottom: 1px solid #a3a2a1;
-	background-image: url('banner.jpg');
+	margin: 0 auto;
+	display: table;
+	background: url('banner.jpg');
 }
 
-#logo{
-	float: left;
-	padding-top: 50px;
-	padding-left: 50px;
+header #content{
+	margin: 0 0;
+	padding: 0 0;
+	color: white;
+	display: table-cell;
+	min-width: 100%;
 }
 
-#title{
-	float: center;
+header img{
+  	margin:0 0;
+	padding: 0 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header #title{
+	padding: 0 0;
+	margin: 0 0;
+	display: inline-block;
 	text-align: center;
 }
 
-#user{
-	float: right;
-	text-align: center;
+header #menu_user{
+	margin: 0 0;
+	padding: 0 0;
+	display: table-cell;
+	vertical-align: bottom;
+	min-width: 350px;
 }
 
-#content
+header #menu_user a{
+	vertical-align: middle;
+	display: table-cell;
+	height: 45px;
+	width: 110px;
+	color: #000000;
+	border-right: solid 0.5px #B4B3B1;
+	text-decoration: none;
+	background-color: #d8d8FF;
+}
+
+header #menu_user_buttons{
+	display: table-cell;
+	text-align: center;
+	background-color: #ffffff;
+	border-radius: 8px 8px 0px 0px;
+}
+
+header #menu_user a:hover{
+	background-color: #d8d8d8;
+	color: #000000;
+}
+header #menu_user a:first-child{
+	border-radius: 8px 0 0 0;
+}
+header #menu_user a:last-child{
+	border-right: none;
+	border-radius: 0 8px 0 0;
+}
+
+/* MENU */
+
+nav{
+	height: 50px;
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #d8d8d8;
+}
+
+nav #home_icon{
+	margin: 0 0;
+	padding: 0 0;
+	width:25px;
+}
+
+nav #boutons_menu{
+	margin: 0 0;
+	padding: 0 0;
+	width:500px;
+	background-color: #d8d8d8;
+}
+
+nav #recherche{
+	margin: 0 auto;
+	padding: 0 0;
+}
+
+/* SECTION */
+
+section
 {
-	height: 750px;
+	height: 250px;
 	width: 1000px;
+	margin: 0 auto;
 	text-align : center;
 	font-size: 22px;
-	margin-top: 170px;
 	padding-top: 300px;
-	position: absolute;
+	background-image: url('background.png');
+	background-size: 100%;
 }
 
-#footer
-{
+
+/* FOOTER */
+
+.footer
+
 	height: 30px;
 	width: 1000px;
-	margin-top: 1080px;
-	padding-top: 20px;
-	color: #000000;
+	margin: 0 auto;
+	color: black;
 	text-align: center;
 	font-size: 22px;
 	border-top: 1px solid #a3a2a1;
-	position: absolute;
 }
