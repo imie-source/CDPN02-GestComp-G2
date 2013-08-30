@@ -36,7 +36,7 @@ padding: 35px 20px 35px 20px;
 .titre{
 position: relative;
 float: left;
-padding: 35px 50px 35px 50px;
+padding: 35px 45px 35px 45px;
 
 text-align: center;
 }
@@ -162,6 +162,7 @@ margin-top: 12px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
+outline: 1px dotted #06739D;
 
 background-color: #06739D;
 }
@@ -174,7 +175,14 @@ background-color: #06739D;
 .projets_en_cours{
 float: left;
 width:59%;
+
+margin-left: 6px;
+margin-top: 12px;
 margin-bottom: 12px;
+padding-right: 6px;
+
+border-right-style: dashed;
+border-right-width: 1px;
 }
 
 
@@ -186,8 +194,14 @@ padding: 5px 5px 5px 5px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
+outline: 1px dotted #00976A;
 
 background-color: #00976A;
+}
+
+div[class="projet_cours"] a{
+text-decoration: none;
+margin-left: 80%;
 }
 
 /* =========================================================
@@ -195,7 +209,8 @@ background-color: #00976A;
  */
 
 .projets_propose{
-margin-left: 12px;
+margin-top: 12px;
+margin-left: 6px;
 float: left;
 width:39%;
 margin-bottom: 12px;
@@ -208,10 +223,15 @@ padding: 5px 5px 5px 5px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
+outline: 1px dotted #E55000;
 
 background-color: #E55000;
 }
 
+div[class="projet_propose"] a{
+text-decoration: none;
+margin-left: 70%;
+}
 /* =========================================================
  * Footer
  */
