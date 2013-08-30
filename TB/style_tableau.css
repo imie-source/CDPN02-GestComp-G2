@@ -1,0 +1,344 @@
+@media screen and (min-width: 1024px){
+	body{
+		width: 1000px;
+		height: 1000px;
+	}
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px){
+	body{
+		width: 95%;
+	}
+}
+
+@media screen and (max-width:640px){	
+	.t3_ligne{
+		width: 95%;
+	}
+	.t3_ligne div{
+		width: 125px;
+	}
+	.t3_lignehead{
+		width: 95%;
+	}
+	.t3_lignehead div{
+		width: 125px;
+	}
+}
+
+body{
+background-color: #f3f2f0;
+margin: auto;
+}
+
+h2{
+	text-align: center;
+	width: 100%;
+}
+/* =========================================================
+* CSS du header
+*/
+
+.header{
+position: relative;
+margin-top: 5px;
+
+height: 150px;
+width: 100%;
+
+border-radius: 20px;
+border-style: solid;
+border-width: 1px;
+
+background-color: #A0A0A0;
+}
+
+.logo{
+position: relative;
+float:left;
+padding: 35px 20px 35px 20px;
+}
+
+.titre{
+position: relative;
+float: left;
+padding: 35px 45px 35px 45px;
+
+text-align: center;
+}
+
+.moncompte{	
+position: relative;
+float: left;
+padding: 35px 20px 35px 20px;
+
+text-align: center;
+}
+
+.info_momcompte{
+margin-bottom: 2px;
+}
+
+.moncompte a{
+text-decoration:none;
+color: white;
+background-color: black;
+border-style: solid;
+border-width: 1px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+border-color: black;
+
+padding: 2px 2px 4px 2px;
+}
+
+.moncompte a:hover{
+opacity: 0.5;
+}
+
+/* =========================================================
+* CSS du contenu
+*/ 
+
+.contenu{
+position: relative;
+top: 0px;
+margin-top: 5px;
+}
+
+/* =========================================================
+* CSS du tableau 1
+*/ 
+
+.tableau_table{
+background-color: white;
+position: relative;
+width: 100%;
+border: 1px solid black;
+border-radius: 10px;
+padding: 5px 5px 5px 5px;
+margin-bottom: 5px;
+
+height: 200px;
+overflow-y: scroll;
+}
+
+.table1{
+width: 100%;
+text-align: center;
+border-collapse:collapse;
+}
+
+.table1 thead{
+font-weight: bold;
+color: grey;
+background-color: #052D6E;
+margin: 0px 0px 0px 0px;
+}
+
+.t1_thead{
+height: 32px;
+}
+
+.t1_pair{
+color: black;
+background-color: #447BD4;
+margin: 0px 0px 0px 0px;
+height: 32px;
+}
+
+/*
+.t1_pair:hover{
+opacity: 0.5;
+}
+*/
+
+.t1_inpair{
+color: black;
+background-color: #6A93D4;
+margin: 0px 0px 0px 0px;
+height: 32px;
+}
+
+/*
+.t1_inpair:hover{
+opacity: 0.5;
+}
+*/
+ 
+/* =========================================================
+* CSS du tableau 2
+*/ 
+ 
+.Tab2{
+background-color: white;
+width: 100%;
+text-align: center;
+border: 1px solid black;
+border-radius: 10px;
+padding: 5px 5px 5px 5px;
+margin-bottom: 5px;
+
+height: 200px;
+overflow-y: scroll;
+}
+ 
+.tableau_table_cell{
+display: table;
+width: 100%;
+}
+
+.t2_thead{
+display: table-header-group;
+}
+
+.t2_tbody{
+display: table-row-group;
+}
+
+.t2_lignehead{
+display: table-row;
+line-height: 0px;
+}
+
+.t2_ligne{
+display: table-row;
+line-height: 0px;
+}
+
+.t2_ligne:hover{
+opacity: 0.5;
+}
+
+.cell_t2_thead{
+font-weight: bold;
+color: grey;
+background-color: #052D6E;
+display: table-cell;
+width: 20%;
+}
+
+.t2_pair{
+display: table-cell;
+color: black;
+background-color: #6A93D4;
+width: 20%;
+}
+ 
+.t2_inpair{
+display: table-cell;
+color: black;
+background-color: #447BD4;
+width: 20%;
+}
+ 
+/* =========================================================
+* CSS du tableau 2
+*/ 
+
+.Tab3{
+background-color: white;
+width: 100%;
+text-align: center;
+border: 1px solid black;
+border-radius: 10px;
+padding: 5px 5px 5px 5px;
+margin-bottom: 5px;
+
+height: 200px;
+overflow-y: scroll;
+}
+
+.tableau_cell_inline_block{
+width: 100%;
+}
+
+.t3_thead{
+width: 100%;
+}
+
+.t3_tbody{
+width: 100%;
+}
+
+.t3_ligne{
+overflow: hidden;
+width: 100%;
+}
+
+.t3_lignehead{
+overflow: hidden;
+width: 100%;
+}
+
+.t3_lignehead div{
+display: inline-block;
+}
+
+.t3_ligne:hover{
+opacity: 0.5;
+}
+
+.t3_ligne div{
+display: inline-block;
+}
+
+.cell_t3_thead{
+font-weight: bold;
+width: 20.05%;
+padding:  6px 0px 6px 0px;
+color: grey;
+background-color: #052D6E;
+margin-right: -0.25em;
+}
+
+.cell_t3_thead p{
+margin: 0px 0px 0px 0px;
+padding:  0px 0px 0px 0px;
+}
+
+.t3_pair{
+width: 20.05%;
+padding:  6px 0px 6px 0px;
+color: black;
+background-color: #447BD4;
+margin-right: -0.25em;
+}
+
+.t3_pair p{
+margin: 0px 0px 0px 0px;
+padding:  0px 0px 0px 0px;
+}
+
+.t3_inpair{
+width: 20.05%;
+padding:  6px 0px 6px 0px;
+color: black;
+background-color: #6A93D4;
+margin-right: -0.25em;
+}
+
+.t3_inpair p{
+margin: 0px 0px 0px 0px;
+padding:  0px 0px 0px 0px;
+}
+
+/* =========================================================
+* Footer
+*/
+
+.footer{
+clear: left;
+margin-top: 5px;
+padding: 5px 5px 5px 5px;
+
+height: 100px;
+width: 1000px;
+
+border-style: solid;
+border-width: 1px;
+border-radius: 20px;
+border-color: black;
+
+background-color: #A0A0A0;
+}
