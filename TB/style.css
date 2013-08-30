@@ -3,6 +3,8 @@ background-color: #f3f2f0;
 height: 1000px;
 width: 1000px;
 margin: auto;
+background-image: url('background.png');
+background-size: 100%;
 }
 
 h2{
@@ -22,9 +24,12 @@ width: 1000px;
 
 border-radius: 20px;
 border-style: solid;
-border-width: 1px;
-
+border-width: 0px;
+    box-shadow: 3px 3px 0px #A0A0A0;
+    
 background-color: #A0A0A0;
+background-image: url('banner.jpg');
+color: white;
 }
 
 .logo{
@@ -162,9 +167,6 @@ margin-top: 12px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
-border-color: #f3f2f0;
-outline: 1px dotted #06739D;
-
 background-color: #06739D;
 }
 
@@ -195,9 +197,6 @@ padding: 5px 5px 5px 5px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
-border-color: #f3f2f0;
-outline: 1px dotted #00976A;
-
 background-color: #00976A;
 }
 
@@ -225,9 +224,6 @@ padding: 5px 5px 5px 5px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
-border-color: #f3f2f0;
-outline: 1px dotted #E55000;
-
 background-color: #E55000;
 }
 
@@ -250,7 +246,6 @@ width: 1000px;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
-border-color: #f3f2f0;
 
 background-color: #A0A0A0;
 }
