@@ -86,15 +86,17 @@ header #menu_user a{
 	display: table-cell;
 	height: 25px;
 	width: 80px;
-	color: #000000;
+	color: black;
 	border-right: solid 0.5px white;
 	text-decoration: none;
+	text-align: center;
 	background-color: white;
 }
 
 header #menu_user_buttons{
 	display: table-cell;
 	text-align: center;
+	color: #d8d8d8;
 	background-color: #ffffff;
 	border-radius: 8px 8px 0px 0px;
 }
@@ -168,7 +170,7 @@ nav li form input[type="submit"]{
 
 section
 {
-	height: 250px;
+	height: 280px;
 	width: 1000px;
 	margin: 0 auto;
 	text-align : center;
