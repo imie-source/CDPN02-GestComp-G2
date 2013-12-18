@@ -1,13 +1,20 @@
 package dao.interfaces;
 
-public class IProjectDAO {
+import java.util.List;
+import dto.ProjectDTO;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public interface IProjectDAO {
 
-	}
+	public int updateProject(ProjectDTO project);
+	
+	public int insertProject(ProjectDTO project);
+	
+	public int deleteProject(ProjectDTO project);
+	
+	public ProjectDTO getProjectById(ProjectDTO project);
+
+    public ProjectDTO getProjectByLibelle(ProjectDTO project);
+	
+	public List<ProjectDTO> getAllProject();
 
 }
