@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,82 +23,92 @@ public class TacheDAO implements ITacheDAO
 	}
 	
 	@Override
-	public int updateTache(TacheDTO tache) {
-		// TODO Auto-generated method stub
+	public int updateTache(TacheDTO tache) 
+	{
 		int idTache = tache.getIdTache();
 		String libelleTache = tache.getLibelleTache();
 		int dureeEstimee = tache.getDureeEstimeeTache();
 		String statutTache = tache.getStatutTache();
 		int idProjet = tache.getIdProjet();
 		int idCompetence = tache.getIdCompetence();
-		String query = "UPDATE tache SET libelle_tache = '"+libelleTache+"', duree_estimee_tache = '"+dureeEstimee+"', statut_tache = '"+statutTache+"', id_projet = '"+idProjet+"', id_competence = '"+idCompetence+"' WHERE id_tache = '"+idTache+"'";
+		String query = "UPDATE tache SET libelle_tache = ?, duree_estimee_tache = ?, statut_tache = ?, id_projet = ?, id_competence = ? WHERE id_tache = ?";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setString(1, libelleTache);
+			stt.setInt(2, dureeEstimee);
+			stt.setString(3, statutTache);
+			stt.setInt(4, idProjet);
+			stt.setInt(5, idCompetence);
+			stt.setInt(6, idTache);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return i;
 	}
 
 	@Override
-	public int insertTache(TacheDTO tache) {
+	public int insertTache(TacheDTO tache) 
+	{
 		String libelleTache = tache.getLibelleTache();
 		int dureeEstimee = tache.getDureeEstimeeTache();
 		String statutTache = tache.getStatutTache();
 		int idProjet = tache.getIdProjet();
 		int idCompetence = tache.getIdCompetence();
-		String query = "INSERT INTO tache(libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence) VALUES('"+libelleTache+"', '"+dureeEstimee+"', '"+statutTache+"', '"+idProjet+"', '"+idCompetence+"')";
+		String query = "INSERT INTO tache(libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence) VALUES(?, ?, ?, ?, ?)";
 		int i = 0;
 		
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setString(1, libelleTache);
+			stt.setInt(2, dureeEstimee);
+			stt.setString(3, statutTache);
+			stt.setInt(4, idProjet);
+			stt.setInt(5, idCompetence);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
 		return i;
 	}
 
 	@Override
-	public int deleteTache(TacheDTO tache) {
-		// TODO Auto-generated method stub
+	public int deleteTache(TacheDTO tache) 
+	{
 		int idTache = tache.getIdTache();
-		String query = "DELETE FROM tache WHERE id_tache = '"+idTache+"'";
+		String query = "DELETE FROM tache WHERE id_tache = ?";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idTache);
 			i = stt.executeUpdate(query);			
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return i;
 	}
 
 	@Override
-	public List<TacheDTO> getTacheByProjet(TacheDTO tache) {
-		// TODO Auto-generated method stub
+	public List<TacheDTO> getTacheByProjet(TacheDTO tache) 
+	{
 		int idProjet = tache.getIdProjet();
-		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE id_projet = '"+idProjet+"'";
+		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE id_projet = ?";
 		ResultSet rs = null;
 		List<TacheDTO> listeTache = new ArrayList<TacheDTO>();
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idProjet);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -113,22 +124,22 @@ public class TacheDAO implements ITacheDAO
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listeTache;
 	}
 
 	@Override
-	public List<TacheDTO> getTacheByCompetence(TacheDTO tache) {
-		// TODO Auto-generated method stub
+	public List<TacheDTO> getTacheByCompetence(TacheDTO tache) 
+	{
 		int idCompetence = tache.getIdCompetence();
-		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE id_competence = '"+idCompetence+"'";
+		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE id_competence = ?";
 		ResultSet rs = null;
 		List<TacheDTO> listeTache = new ArrayList<TacheDTO>();
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idCompetence);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -144,23 +155,23 @@ public class TacheDAO implements ITacheDAO
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listeTache;
 	}
 
 	@Override
-	public TacheDTO getTacheById(TacheDTO tache) {
-		// TODO Auto-generated method stub
+	public TacheDTO getTacheById(TacheDTO tache)
+	{
 		int idTache = tache.getIdTache();
-		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE id_tache = '"+idTache+"'";
+		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE id_tache = ?";
 		ResultSet rs = null;
 		TacheDTO newTache = new TacheDTO();
 		try
 		{
 			
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idTache);
 			rs = stt.executeQuery(query);
 			newTache.setIdTache(rs.getInt("id_tache"));
 			newTache.setLibelleTache(rs.getString("libelle_tache"));
@@ -171,22 +182,22 @@ public class TacheDAO implements ITacheDAO
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return newTache;
 	}
 
 	@Override
-	public List<TacheDTO> getTacheByDuree(TacheDTO tache) {
-		// TODO Auto-generated method stub
+	public List<TacheDTO> getTacheByDuree(TacheDTO tache) 
+	{
 		int dureeEstimee = tache.getDureeEstimeeTache();
-		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE duree_estimee_tache = '"+dureeEstimee+"'";
+		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache WHERE duree_estimee_tache = ?";
 		ResultSet rs = null;
 		List<TacheDTO> listeTache = new ArrayList<TacheDTO>();
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, dureeEstimee);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -202,15 +213,14 @@ public class TacheDAO implements ITacheDAO
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listeTache;
 	}
 
 	@Override
-	public List<TacheDTO> getAllTache() {
-		// TODO Auto-generated method stub
+	public List<TacheDTO> getAllTache() 
+	{
 		String query = "SELECT id_tache, libelle_tache, duree_estimee_tache, statut_tache, id_projet, id_competence FROM tache";
 		ResultSet rs = null;
 		List<TacheDTO> listeTache = new ArrayList<TacheDTO>();
@@ -232,7 +242,6 @@ public class TacheDAO implements ITacheDAO
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listeTache;
