@@ -1,13 +1,19 @@
 package service.impl;
 
-public class PromotionService {
+import java.util.List;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+import dao.factory.FactoryDAO;
+import dao.interfaces.IPromotionDAO;
+import dto.PromotionDTO;
+import service.interfaces.IPromotionService;
 
+public class PromotionService implements IPromotionService
+{
+	@Override
+	public List<PromotionDTO> listerPromotions()
+	{
+		IPromotionDAO TTTTT = new FactoryDAO().getPromotionDAO();
+		return null;
 	}
 
 }
