@@ -6,8 +6,9 @@ import dto.PromotionDTO;
 
 public interface IPromotionService
 {
-
-	public List<PromotionDTO> listerPromotions();
+	public List<PromotionDTO> getAllPromotions();
 	
+	public int createPromotion(PromotionDTO promo);
 	
+	public int deletePromotion(PromotionDTO promo);
 }

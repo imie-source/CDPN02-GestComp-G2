@@ -3,7 +3,6 @@ package service.impl;
 import java.util.List;
 
 import dao.factory.FactoryDAO;
-import dao.interfaces.IPromotionDAO;
 
 import dto.PromotionDTO;
 
@@ -12,10 +11,22 @@ import service.interfaces.IPromotionService;
 public class PromotionService implements IPromotionService
 {
 	@Override
-	public List<PromotionDTO> listerPromotions()
+	public List<PromotionDTO> getAllPromotions()
 	{
-		IPromotionDAO promotionService = new FactoryDAO().getPromotionDAO();
-		List<PromotionDTO> listePromo = promotionService.getAllPromotion();
+		List<PromotionDTO> listePromo = FactoryDAO.getPromotionDAO().getAllPromotion();
 		return listePromo;
+	}
+
+	@Override
+	public int createPromotion(PromotionDTO promo)
+	{
+		int i = FactoryDAO.getPromotionDAO().insertPromotion(promo);
+		return i;
+	}
+
+	@Override
+	public int deletePromotion(PromotionDTO promo) {
+		int i = FactoryDAO.getPromotionDAO().deletePromotion(promo);
+		return i;
 	}
 }
