@@ -1,5 +1,13 @@
 package service.interfaces;
 
-public interface IPromotionService {
+import java.util.List;
 
+import dto.PromotionDTO;
+
+public interface IPromotionService
+{
+
+	public List<PromotionDTO> listerPromotions();
+	
+	
 }
