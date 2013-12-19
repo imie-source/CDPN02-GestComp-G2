@@ -1,7 +1,3 @@
-import dao.impl.CompetenceDAO;
-import dto.CompetenceDTO;
-
-
 public class Main {
 
 	/**
