@@ -104,7 +104,6 @@ public class ProjectDAO implements IProjectDAO{
 
 	@Override
 	public ProjectDTO getProjectByLibelle(ProjectDTO project) {
-        String libelle = project.getLibelleProject();
         String query = "SELECT id_Porject, libelle_Project FROM Project WHERE id_Project = ? LIMIT 0,1";
         ProjectDTO newProject = new ProjectDTO();
 
