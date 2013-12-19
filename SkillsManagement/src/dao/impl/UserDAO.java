@@ -4,6 +4,7 @@ import dao.factory.FactoryDAO;
 import dao.interfaces.IUserDAO;
 import dto.UserDTO;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,18 +29,26 @@ public class UserDAO implements IUserDAO {
         String telUtilisateur = user.getTelUtilisateur();
         String descriptionUtilisateur = user.getDescriptionUtilisateur();
         boolean disponibleUtilisateur = user.isDisponibleUtilisateur();
-        String query = "UPDATE utilisateur SET nom_utilisateur = '" + nomUtilisateur + "', "
-                + "prenom_utilisateur = '" + prenomUtilisateur + "', "
-                + "login_utilisateur = '" + loginUtilisateur + "', "
-                + "mdp_utilisateur = '" + mdpUtilisateur + "', "
-                + "email_utilisateur = '" + emailUtilisateur + "', "
-                + "tel_utilisateur = '" + telUtilisateur + "', "
-                + "description_utilisateur = '" + descriptionUtilisateur + "', "
-                + "disponible_utilisateur = '" + disponibleUtilisateur + "'";
+        String query = "UPDATE utilisateur SET nom_utilisateur = ?, "
+                + "prenom_utilisateur = ?, "
+                + "login_utilisateur = ?, "
+                + "mdp_utilisateur = ?, "
+                + "email_utilisateur = ?, "
+                + "tel_utilisateur = ?, "
+                + "description_utilisateur = ?, "
+                + "disponible_utilisateur = ?";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, nomUtilisateur);
+            statement.setString(2, prenomUtilisateur);
+            statement.setString(3, loginUtilisateur);
+            statement.setString(4, mdpUtilisateur);
+            statement.setString(5, emailUtilisateur);
+            statement.setString(6, telUtilisateur);
+            statement.setString(7, descriptionUtilisateur);
+            statement.setBoolean(8, disponibleUtilisateur);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -60,15 +69,19 @@ public class UserDAO implements IUserDAO {
         boolean disponibleUtilisateur = user.isDisponibleUtilisateur();
         String query = "INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, "
                 + "login_utilisateur, mdp_utilisateur, email_utilisateur, tel_utilisateur, "
-                + "description_utilisateur, disponible_utilisateur) VALUES('"
-                + nomUtilisateur + "', '" + prenomUtilisateur + "', '" + loginUtilisateur
-                + "', '" + mdpUtilisateur + "', '" + emailUtilisateur + "', '"
-                + telUtilisateur + "', '" + descriptionUtilisateur + "', '"
-                + disponibleUtilisateur + "')";
+                + "description_utilisateur, disponible_utilisateur) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, nomUtilisateur);
+            statement.setString(2, prenomUtilisateur);
+            statement.setString(3, loginUtilisateur);
+            statement.setString(4, mdpUtilisateur);
+            statement.setString(5, emailUtilisateur);
+            statement.setString(6, telUtilisateur);
+            statement.setString(7, descriptionUtilisateur);
+            statement.setBoolean(8, disponibleUtilisateur);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -79,11 +92,12 @@ public class UserDAO implements IUserDAO {
     @Override
     public int deleteUser(UserDTO user) {
         int idUtilisateur = user.getIdUtilisateur();
-        String query = "DELETE FROM utilisateur WHERE id_utilisateur = '" + idUtilisateur + "'";
+        String query = "DELETE FROM utilisateur WHERE id_utilisateur = ?";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idUtilisateur);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -94,11 +108,12 @@ public class UserDAO implements IUserDAO {
     @Override
     public UserDTO getUserById(UserDTO user) {
         int idUtilisateur = user.getIdUtilisateur();
-        String query = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = '" + idUtilisateur + "' LIMIT 0,1";
+        String query = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = ? LIMIT 0,1";
         UserDTO userDTO = new UserDTO();
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idUtilisateur);
             ResultSet resultSet = statement.executeQuery(query);
             userDTO.setIdUtilisateur(resultSet.getInt("id_utilisateur"));
             userDTO.setNomUtilisateur(resultSet.getString("nom_utilisateur"));

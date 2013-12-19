@@ -5,6 +5,7 @@ import dao.interfaces.IUserCompetenceDAO;
 import dto.UserCompetenceDTO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,11 +28,14 @@ public class UserCompetenceDAO implements IUserCompetenceDAO{
 		int idComp = unDTO.getIdComp();
 		String niveauComp = unDTO.getNiveauComp();
 		String query = "UPDATE utilisateur_competence " +
-						"SET niveau_competence = '"+niveauComp+"' WHERE id_utilisateur = '"+idUser+"' AND id_competence = '"+idComp+"'";
+						"SET niveau_competence = ? WHERE id_utilisateur = ? AND id_competence = ?";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setString(1, niveauComp);
+			stt.setInt(2, idUser);
+			stt.setInt(3, idComp);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
@@ -49,11 +53,14 @@ public class UserCompetenceDAO implements IUserCompetenceDAO{
 		int idComp = unDTO.getIdComp();
 		String niveauComp = unDTO.getNiveauComp();
 		String query = "INSERT INTO utilisateur_competence(id_utilisateur, id_competence, niveau_competence) " +
-						"VALUES('"+idUser+"', '"+idComp+"', '"+niveauComp+"')";
+						"VALUES(?, ?, ?)";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idUser);
+			stt.setInt(2, idComp);
+			stt.setString(3, niveauComp);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e) 
@@ -69,11 +76,13 @@ public class UserCompetenceDAO implements IUserCompetenceDAO{
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUser();
 		int idComp = unDTO.getIdComp();
-		String query = "DELETE FROM utilisateur_competence WHERE id_utilisateur = '"+idUser+"' AND id_competence = '"+idComp+"'";
+		String query = "DELETE FROM utilisateur_competence WHERE id_utilisateur = ? AND id_competence = ?";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idUser);
+			stt.setInt(2, idComp);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
@@ -115,12 +124,13 @@ public class UserCompetenceDAO implements IUserCompetenceDAO{
 	public List<UserCompetenceDTO> getUtilisateurCompetenceByIdUser(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUser();
-		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE id_utilisateur = '"+idUser+"'";
+		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE id_utilisateur = ?";
 		ResultSet rs = null;
 		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idUser);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -143,12 +153,13 @@ public class UserCompetenceDAO implements IUserCompetenceDAO{
 	public List<UserCompetenceDTO> getUtilisateurCompetenceByNiveau(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		String niveauComp = unDTO.getNiveauComp();
-		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE niveau_competence = '"+niveauComp+"'";
+		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE niveau_competence = ?";
 		ResultSet rs = null;
 		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setString(1, niveauComp);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -171,12 +182,13 @@ public class UserCompetenceDAO implements IUserCompetenceDAO{
 	public List<UserCompetenceDTO> getUtilisateurCompetenceByIdComp(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idComp = unDTO.getIdComp();
-		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE id_competence = '"+idComp+"'";
+		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE id_competence = ?";
 		ResultSet rs = null;
 		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idComp);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
