@@ -26,12 +26,15 @@ public class PromotionDAO implements IPromotionDAO{
 	public int updatePromotion(PromotionDTO promo) {
 		String libelle = promo.getLibelle_promotion();
 		Date annee = (Date) promo.getAnnee_promotion();
-		String query = "UPDATE promotion SET libelle_promotion = ?, annee_promotion = ?";
+		int idPromotion = promo.getId_promotion();
+		String query = "UPDATE promotion SET libelle_promotion = ?, annee_promotion = ? WHERE id_promotion = ?";
 		int i = 0;
 		try
 		{
 			PreparedStatement stt = this.conn.prepareStatement(query);
 			stt.setString(1, libelle);
+			stt.setDate(2, annee);
+			stt.setInt(3, idPromotion);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
