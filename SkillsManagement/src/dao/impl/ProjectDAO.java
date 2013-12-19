@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,8 +12,6 @@ import dao.factory.FactoryDAO;
 import dao.interfaces.IProjectDAO;
 import dto.ProjectDTO;
 
-/* TABLE Project (id_Project, libelle_Project, annee_date)
- */
 public class ProjectDAO implements IProjectDAO{
 
 	private Connection conn = null;
@@ -24,13 +23,17 @@ public class ProjectDAO implements IProjectDAO{
 	
 	@Override
 	public int updateProject(ProjectDTO project) {
-		String libelle = project.getLibelleProject();
 		int id = project.getIdProject();
-		String query = "UPDATE Project SET id_Project = '"+id+"' libelle_Project = '"+libelle+"')";
+		String libelle = project.getLibelleProject();
+		PreparedStatement updatePS = null;
+		String query = "UPDATE Project SET libelle_Project = ? where id_Project = ?";
+		
 		int i = 0;
 		try {
-			Statement stmt = this.conn.createStatement();
-			i = stmt.executeUpdate(query);
+			updatePS = this.conn.prepareStatement(query);
+			updatePS.setInt(1, id);
+			updatePS.setString(2, libelle);
+			i = updatePS.executeUpdate(query);
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -40,14 +43,17 @@ public class ProjectDAO implements IProjectDAO{
 
 	@Override
 	public int insertProject(ProjectDTO project) {
-        String libelle = project.getLibelleProject();
-        int id = project.getIdProject();
-		String query = "INSERT INTO Project(id_Project, libelle_Project) VALUES('"+id+"', '"+libelle+"')";
+		int id = project.getIdProject();
+		String libelle = project.getLibelleProject();
+		PreparedStatement insertPS = null;
+		String query = "INSERT INTO Project(id_Project, libelle_Project) VALUES(?, ?)";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
-			i = stt.executeUpdate(query);
+			insertPS = this.conn.prepareStatement(query);
+			insertPS.setInt(1, id);
+			insertPS.setString(2, libelle);
+			i = insertPS.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
@@ -60,11 +66,14 @@ public class ProjectDAO implements IProjectDAO{
 	@Override
 	public int deleteProject(ProjectDTO project) {
 		int id = project.getIdProject();
-		String query = "DELETE FROM Project WHERE id_Project = '"+id+"'";
+		PreparedStatement deletePS = null;
+		String query = "DELETE FROM Project WHERE id_Project = ?";
 		int i = 0;
+		
 		try {
-			Statement stt = this.conn.createStatement();
-			i = stt.executeUpdate(query);
+			deletePS = this.conn.prepareStatement(query);
+			deletePS.setInt(1, id);
+			i = deletePS.executeUpdate(query);
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -75,12 +84,14 @@ public class ProjectDAO implements IProjectDAO{
 	@Override
 	public ProjectDTO getProjectById(ProjectDTO project) {
 		int id = project.getIdProject();
-		String query = "SELECT id_Porject, libelle_Project FROM Project WHERE id_Project = '"+id+"' LIMIT 0,1";
+		PreparedStatement readPS = null;
+		String query = "SELECT id_Project, libelle_Project FROM Project WHERE id_Project = ? LIMIT 0,1";
 		ProjectDTO newProject = new ProjectDTO();
 
 		try {
-			Statement stt = this.conn.createStatement();
-			ResultSet rs = stt.executeQuery(query);
+			readPS = this.conn.prepareStatement(query);
+			readPS.setInt(1, id);
+			ResultSet rs = readPS.executeQuery(query);
 			newProject.setIdProject(rs.getInt("id_Project"));
 			newProject.setLibelleProject(rs.getString("libelle_Project"));
 		}
@@ -93,8 +104,7 @@ public class ProjectDAO implements IProjectDAO{
 
 	@Override
 	public ProjectDTO getProjectByLibelle(ProjectDTO project) {
-        String libelle = project.getLibelleProject();
-        String query = "SELECT id_Porject, libelle_Project FROM Project WHERE id_Project = '"+libelle+"' LIMIT 0,1";
+        String query = "SELECT id_Porject, libelle_Project FROM Project WHERE id_Project = ? LIMIT 0,1";
         ProjectDTO newProject = new ProjectDTO();
 
         try {

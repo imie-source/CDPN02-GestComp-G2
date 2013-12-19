@@ -1,12 +1,12 @@
 package dto;
 
-public class UtilisateurNotificationDTO {
+public class UserNotificationDTO {
 
 	private int idNotification;
 	private int idUtilisateur;
 	private int idNotificationPere;
 	
-	public UtilisateurNotificationDTO()
+	public UserNotificationDTO()
 	{
 		
 	}

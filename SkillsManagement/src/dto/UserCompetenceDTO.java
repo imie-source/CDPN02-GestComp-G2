@@ -1,12 +1,12 @@
 package dto;
 
-public class UtilisateurCompetenceDTO
+public class UserCompetenceDTO
 {
 	private int idUser;
 	private int idComp;
 	private String niveauComp;
 	
-	public UtilisateurCompetenceDTO()
+	public UserCompetenceDTO()
 	{
 		
 	}

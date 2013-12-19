@@ -6,13 +6,13 @@ import dto.NatureDroitDTO;
 
 public interface INatureDroitDAO {
 
-	public int deleteNatureDroit (int idNatureDroit);
+	public int deleteNatureDroit (NatureDroitDTO natureDroit);
 
-	public int insertNatureDroit(String nomNature);
+	public int insertNatureDroit(NatureDroitDTO natureDroit);
 	
 	public List<NatureDroitDTO> getAllNatureDroit();
 
-	public NatureDroitDTO getNatureDroitByID (int idNatureDroit);
+	public NatureDroitDTO getNatureDroitByID (NatureDroitDTO natureDroit);
 
 	public int updateNatureDroit(NatureDroitDTO natureDroit);
 	

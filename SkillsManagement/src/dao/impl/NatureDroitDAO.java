@@ -6,6 +6,7 @@ import dao.interfaces.INatureDroitDAO;
 import dto.NatureDroitDTO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,17 +18,20 @@ public class NatureDroitDAO implements INatureDroitDAO {
 	
 	public NatureDroitDAO(FactoryDAO instance)
 	{
-//		this.conn = instance.get
+		this.conn = instance.getConn();
 	}
 
-	@Override
-	public int deleteNatureDroit(int idNatureDroit) {
-		String query = "DELETE FROM nature_droit WHERE id_nature = '"+idNatureDroit+"'";
+	public int deleteNatureDroit(NatureDroitDTO natureDroit) {
+		int idNatureDroit = natureDroit.getIdNature();
+		PreparedStatement deletePS = null;
+		String query = "DELETE FROM nature_droit WHERE id_nature = ?";
 		int i = 0;
+		
 		try 
 		{
-			Statement stt = this.conn.createStatement();
-			i = stt.executeUpdate(query);
+			deletePS = this.conn.prepareStatement(query);
+			deletePS.setInt(1, idNatureDroit);
+			i = deletePS.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
@@ -37,13 +41,18 @@ public class NatureDroitDAO implements INatureDroitDAO {
 	}
 
 	@Override
-	public int insertNatureDroit(String nom) {
-		String query = "INSERT INTO nature_droit(nom_nature) VALUES('"+nom+"')";
+	public int insertNatureDroit(NatureDroitDTO natureDroit) {
+		int idNatureDroit = natureDroit.getIdNature();
+		String nomNature = natureDroit.getNomNature();
+		PreparedStatement insertPS = null;
+		String query = "INSERT INTO nature_droit(nom_nature) VALUES(?)";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
-			i = stt.executeUpdate(query);
+			insertPS = this.conn.prepareStatement(query);
+			insertPS.setInt(1, idNatureDroit);
+			insertPS.setString(2, nomNature);
+			i = insertPS.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
@@ -77,34 +86,39 @@ public class NatureDroitDAO implements INatureDroitDAO {
 	}
 
 	@Override
-	public NatureDroitDTO getNatureDroitByID(int idNatureDroit) {
-		String query = "SELECT id_nature, nom_nature FROM nature_droit WHERE id_nature = '"+idNatureDroit+"' LIMIT 0,1";
-		NatureDroitDTO competence = new NatureDroitDTO();
+	public NatureDroitDTO getNatureDroitByID(NatureDroitDTO natureDroit) {
+		String query = "SELECT id_nature, nom_nature FROM nature_droit WHERE id_nature = ? LIMIT 0,1";
+		NatureDroitDTO newNatureDroit = new NatureDroitDTO();
 		
 		try
 		{
 			Statement stt = this.conn.createStatement();
 			ResultSet rs = stt.executeQuery(query);
-			competence.setIdNature(rs.getInt("id_nature"));
-			competence.setNomNature(rs.getString("nom_nature"));
+			newNatureDroit.setIdNature(rs.getInt("id_nature"));
+			newNatureDroit.setNomNature(rs.getString("nom_nature"));
 		}
 		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
 		
-		return competence;
+		return newNatureDroit;
 	}
 
 	@Override
-	public int updateNatureDroit(NatureDroitDTO competence) {
-		String nom = competence.getNomNature();
-		String query = "UPDATE nature_droit SET nom_nature = '"+ nom;
+	public int updateNatureDroit(NatureDroitDTO natureDroit) {
+		int idNature = natureDroit.getIdNature();
+		String nomNature = natureDroit.getNomNature();
+		PreparedStatement updatePS = null;
+		String query = "UPDATE nature_droit SET nom_nature = ? where id = ?";
 		int i = 0;
+		
 		try
 		{
-			Statement stt = this.conn.createStatement();
-			i = stt.executeUpdate(query);
+			updatePS = this.conn.prepareStatement(query);
+			updatePS.setInt(1, idNature);
+			updatePS.setString(2, nomNature);
+			i = updatePS.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
