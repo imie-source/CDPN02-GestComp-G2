@@ -5,6 +5,7 @@ import dao.interfaces.INotificationDAO;
 import dto.NotificationDTO;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,32 +21,38 @@ public class NotificationDAO implements INotificationDAO {
     }
 
     @Override
-    public int updateNotification(NotificationDTO notification) {
+    public int updateNotification(NotificationDTO notification) 
+    {
         Date dateNotification = notification.getDateNotification();
         String libelleNotification = notification.getLibelleNotification();
-        String query = "UPDATE notification SET date_notification = '" + dateNotification + "', "
-                + "libelle_notification = '" + libelleNotification + "'";
+        int idNotification = notification.getIdNotification();
+        String query = "UPDATE notification SET date_notification = ?, libelle_notification = ? WHERE idNotification = ?";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setDate(1, dateNotification);
+            statement.setString(2, libelleNotification);
+            statement.setInt(3, idNotification);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
         return result;
     }
 
     @Override
-    public int insertNotification(NotificationDTO notification) {
+    public int insertNotification(NotificationDTO notification)
+    {
         Date dateNotification = notification.getDateNotification();
         String libelleNotification = notification.getLibelleNotification();
-        String query = "INSERT INTO fonction(date_notification, libelle_notification) VALUES('" + dateNotification + "', '" + libelleNotification + "')";
+        String query = "INSERT INTO fonction(date_notification, libelle_notification) VALUES(?, ?)";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setDate(1, dateNotification);
+            statement.setString(2, libelleNotification);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -56,11 +63,12 @@ public class NotificationDAO implements INotificationDAO {
     @Override
     public int deleteNotification(NotificationDTO notification) {
         int idNotification = notification.getIdNotification();
-        String query = "DELETE FROM notification WHERE id_notification = '" + idNotification + "'";
+        String query = "DELETE FROM notification WHERE id_notification = ?";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idNotification);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -69,13 +77,15 @@ public class NotificationDAO implements INotificationDAO {
     }
 
     @Override
-    public NotificationDTO getNotificationById(NotificationDTO notification) {
+    public NotificationDTO getNotificationById(NotificationDTO notification) 
+    {
         int idNotification = notification.getIdNotification();
-        String query = "SELECT id_notification FROM notification WHERE id_notification = '" + idNotification + "' LIMIT 0,1";
+        String query = "SELECT id_notification FROM notification WHERE id_notification = ? LIMIT 0,1";
         NotificationDTO notificationDTO = new NotificationDTO();
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idNotification);
             ResultSet resultSet = statement.executeQuery(query);
             notificationDTO.setIdNotification(resultSet.getInt("id_notification"));
             notificationDTO.setDateNotification(resultSet.getDate("date_notification"));
@@ -88,7 +98,8 @@ public class NotificationDAO implements INotificationDAO {
     }
 
     @Override
-    public List<NotificationDTO> getAllNotification() {
+    public List<NotificationDTO> getAllNotification() 
+    {
         String query = "SELECT id_notification, date_notification, libelle_notification FROM notification";
         List<NotificationDTO> listNotifications = new ArrayList<NotificationDTO>();
         NotificationDTO notificationDTO = new NotificationDTO();

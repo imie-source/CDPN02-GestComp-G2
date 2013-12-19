@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,8 +12,6 @@ import dao.factory.FactoryDAO;
 import dao.interfaces.IProfilDAO;
 import dto.ProfilDTO;
 
-/* TABLE Profil (id_Profil, nom_profil, profil_pere)
- */
 public class ProfilDAO implements IProfilDAO{
 
 	private Connection conn = null;
@@ -23,74 +22,79 @@ public class ProfilDAO implements IProfilDAO{
 	}
 	
 	@Override
-	public int updateProfil(ProfilDTO profil) {
-		// TODO Auto-generated method stub
+	public int updateProfil(ProfilDTO profil) 
+	{
 		String profilNom = profil.getNom_profil();
 		int profil_pere = profil.getProfil_pere_id();
-		String query = "UPDATE Profil SET nom_profil = '" + profilNom + "', id_profil_pere = '" + profil_pere + "'";
+		int idProfil = profil.getProfil_id();
+		String query = "UPDATE Profil SET nom_profil = ?, id_profil_pere = ? WHERE id_profil = ?";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setString(1, profilNom);
+			stt.setInt(2, profil_pere);
+			stt.setInt(3, idProfil);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return i;
 	}
 
 	@Override
-	public int insertProfil(ProfilDTO profil) {
-		// TODO Auto-generated method stub
+	public int insertProfil(ProfilDTO profil) 
+	{
 		String profil_nom = profil.getNom_profil();
 		int profil_pere = profil.getProfil_pere_id();
-		String query = "INSERT INTO Profil(nom_profil, id_profil_pere) VALUES('"+profil_nom+"', '"+profil_pere+"')";
+		String query = "INSERT INTO Profil(nom_profil, id_profil_pere) VALUES(?, ?)";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setString(1, profil_nom);
+			stt.setInt(2, profil_pere);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return i;
 	}
 
 	@Override
-	public int deleteProfil(ProfilDTO profil) {
-		// TODO Auto-generated method stub
+	public int deleteProfil(ProfilDTO profil) 
+	{
 		int id_Profil = profil.getProfil_id();
-		String query = "DELETE FROM Profil WHERE id_Profil = '"+id_Profil+"'";
+		String query = "DELETE FROM Profil WHERE id_Profil = ?";
 		int i = 0;
 		try 
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, id_Profil);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return i;
 	}
 
 	@Override
-	public ProfilDTO getProfilById(ProfilDTO profil) {
-		// TODO Auto-generated method stub
+	public ProfilDTO getProfilById(ProfilDTO profil)
+	{
 		int id_Profil = profil.getProfil_id();
-		String query = "SELECT id_Profil, nom_profil, id_profil_pere FROM Profil WHERE id_Profil = '"+id_Profil+"' LIMIT 0,1";
+		String query = "SELECT id_Profil, nom_profil, id_profil_pere FROM Profil WHERE id_Profil = ? LIMIT 0,1";
 		ProfilDTO newprofil = new ProfilDTO();
 		
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, id_Profil);
 			ResultSet rs = stt.executeQuery(query);
 			newprofil.setProfil_id(rs.getInt("id_Profil"));
 			newprofil.setNom_profil(rs.getString("nom_profil"));
@@ -98,7 +102,6 @@ public class ProfilDAO implements IProfilDAO{
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -107,8 +110,8 @@ public class ProfilDAO implements IProfilDAO{
 
 
 	@Override
-	public List<ProfilDTO> getAllProfil() {
-		// TODO Auto-generated method stub
+	public List<ProfilDTO> getAllProfil()
+	{
 		String query = "SELECT id_Profil, nom_profil, id_profil_pere FROM Profil";
 		List<ProfilDTO> listeprofil = new ArrayList<ProfilDTO>();
 		ProfilDTO profil = new ProfilDTO();
@@ -123,11 +126,9 @@ public class ProfilDAO implements IProfilDAO{
 				profil.setProfil_pere_id(rs.getInt("id_profil_pere"));
 				listeprofil.add(profil);
 			}
-			
 		}
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listeprofil;
