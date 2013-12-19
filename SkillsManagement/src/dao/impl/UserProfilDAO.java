@@ -5,6 +5,7 @@ import dao.interfaces.IUserProfilDAO;
 import dto.UserProfilDTO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,11 +24,13 @@ public class UserProfilDAO implements IUserProfilDAO {
     public int deleteUserProfil(UserProfilDTO userProfil) {
         int idUtilisateur = userProfil.getIdUtilisateur();
         int idProfil = userProfil.getIdProfil();
-        String query = "DELETE FROM utilisateur_profil WHERE id_utilisateur = '" + idUtilisateur + "', AND id_profil = '" + idProfil + "'";
+        String query = "DELETE FROM utilisateur_profil WHERE id_utilisateur = ?, AND id_profil = ?";
         int result = 0;
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idUtilisateur);
+            statement.setInt(2, idProfil);
             result = statement.executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -39,11 +42,13 @@ public class UserProfilDAO implements IUserProfilDAO {
     public UserProfilDTO getUserProfilById(UserProfilDTO userProfil) {
         int idUtilisateur = userProfil.getIdUtilisateur();
         int idProfil = userProfil.getIdProfil();
-        String query = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = '" + idUtilisateur + "', AND id_profil = '" + idProfil + "' LIMIT 0,1";
+        String query = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = ?, AND id_profil = ? LIMIT 0,1";
         UserProfilDTO userProfilDTO = new UserProfilDTO();
 
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idUtilisateur);
+            statement.setInt(2, idProfil);
             ResultSet resultSet = statement.executeQuery(query);
             userProfilDTO.setIdUtilisateur(resultSet.getInt("id_utilisateur"));
             userProfilDTO.setIdProfil(resultSet.getInt("id_profil"));

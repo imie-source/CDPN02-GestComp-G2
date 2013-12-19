@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,11 +27,14 @@ public class UserNotificationDAO implements IUserNotificationDAO {
 		int idUser = unDTO.getIdUtilisateur();
 		int idNotPere = unDTO.getIdNotificationPere();
 		String query = "INSERT INTO utilisateur_notification(id_notification, id_utilisateur, id_notification_pere)"
-						+ "VALUES('"+idNot+"', '"+idUser+"', '"+idNotPere+"')";
+						+ "VALUES(?, ?, ?)";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idNot);
+			stt.setInt(2, idUser);
+			stt.setInt(3, idNotPere);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
@@ -45,12 +49,13 @@ public class UserNotificationDAO implements IUserNotificationDAO {
 	public int deleteUtilisateurNotification(UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNot = unDTO.getIdNotification();
-		String query = "DELETE FROM utilisateur_notification WHERE id_notification = '"+idNot+"'";
+		String query = "DELETE FROM utilisateur_notification WHERE id_notification = ?";
 		int i = 0;
 		
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idNot);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
@@ -68,12 +73,15 @@ public class UserNotificationDAO implements IUserNotificationDAO {
 		int idUser = unDTO.getIdUtilisateur();
 		int idNotPere = unDTO.getIdNotificationPere();
 		String query = "UPDATE utilisateur_notification"
-						+" SET id_utilisateur = '"+idUser+"', id_notification_pere = '"+idNotPere+"'"
-						+" WHERE id_notification = '"+idNot+"'";
+						+" SET id_utilisateur = ?, id_notification_pere = ?"
+						+" WHERE id_notification = ?";
 		int i = 0;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idUser);
+			stt.setInt(2, idNotPere);
+			stt.setInt(3, idNot);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e)
@@ -117,12 +125,13 @@ public class UserNotificationDAO implements IUserNotificationDAO {
 	{
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUtilisateur();
-		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_utilisateur = '"+idUser+"'";
+		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_utilisateur = ?";
 		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idUser);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -145,12 +154,13 @@ public class UserNotificationDAO implements IUserNotificationDAO {
 	public List<UserNotificationDTO> getUtilisateurNotificationByIdNotification(UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNot = unDTO.getIdNotification();
-		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_notification = '"+idNot+"'";
+		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_notification = ?";
 		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idNot);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
@@ -173,12 +183,13 @@ public class UserNotificationDAO implements IUserNotificationDAO {
 			UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNotPere = unDTO.getIdNotificationPere();
-		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_notification_pere = '"+idNotPere+"'";
+		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_notification_pere = ?";
 		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		try
 		{
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, idNotPere);
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
