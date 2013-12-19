@@ -63,7 +63,7 @@ public class FactoryDAO
         return new CompetenceDAO(instance);
     }
 
-    public static IFonctionDAO getFonction() {
+    public static IFonctionDAO getFonctionDAO() {
         return new FonctionDAO(instance);
     }
 
@@ -91,7 +91,15 @@ public class FactoryDAO
         return new UserDAO(instance);
     }
 
-    /*public static IUserNotificationDAO getUserNotificationDAO() {
+    public static IUserProfilDAO getUserProfilDAO() {
+        return new UserProfilDAO(instance);
+    }
+
+    public static IUserProjectDAO getUserProjectDAO() {
+        return new UserProjectDAO(instance);
+    }
+
+    public static IUserNotificationDAO getUserNotificationDAO() {
         return new UserNotificationDAO(instance);
     }
 	
@@ -99,7 +107,7 @@ public class FactoryDAO
 		return new ProfilFonctionNatureDAO(instance);
 	}
 	
-	public static IUtilisateurCompetenceDAO getUtilisateurCompetenceDAO() {
-		return new UtilisateurCompetenceDAO(instance);
-	}*/
+	public static IUserCompetenceDAO getUserCompetenceDAO() {
+		return new UserCompetenceDAO(instance);
+	}
 }
