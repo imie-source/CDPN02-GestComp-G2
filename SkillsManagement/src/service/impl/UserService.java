@@ -1,13 +1,19 @@
 package service.impl;
 
-public class UserService {
+import java.util.List;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+import dao.factory.FactoryDAO;
+import dao.interfaces.IUserDAO;
+import dto.UserDTO;
+import service.interfaces.IUserService;
 
+public class UserService implements IUserService {
+
+	@Override
+	public List<UserDTO> listerUsers() {
+		new FactoryDAO();
+		IUserDAO userService = FactoryDAO.getUserDAO();
+		return null;
 	}
-
+	
 }
