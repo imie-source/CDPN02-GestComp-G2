@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,10 +24,11 @@ private Connection conn = null;
 	@Override
 	public int deleteUserProject(UserProjectDTO userProject) {
 		int id = userProject.getIdProject();
-		String query = "DELETE FROM Project WHERE id_projet = '" + id + "'";
+		String query = "DELETE FROM Project WHERE id_projet = ?";
 		int i = 0;
 		try {
-			Statement stt = this.conn.createStatement();
+			PreparedStatement stt = this.conn.prepareStatement(query);
+			stt.setInt(1, id);
 			i = stt.executeUpdate(query);
 		}
 		catch (SQLException e) {
@@ -39,11 +41,13 @@ private Connection conn = null;
 	public UserProjectDTO getUserProjectById(UserProjectDTO userProject) {
 		int idProject = userProject.getIdProject();
 		int idUser = userProject.getIdUtilisateur();
-		String query = "SELECT id_project, id_utilisateur FROM utilisateur_projet WHERE id_projet = '" + idProject + ", AND id_utilisateur = '" + idUser + " LIMIT 0,1";
+		String query = "SELECT id_project, id_utilisateur FROM utilisateur_projet WHERE id_projet = ?, AND id_utilisateur = ? LIMIT 0,1";
 		UserProjectDTO userProjectDTO = new UserProjectDTO();
 
 		try {
-			Statement stt = conn.createStatement();
+			PreparedStatement stt = conn.prepareStatement(query);
+			stt.setInt(1, idProject);
+			stt.setInt(1, idUser);
 			ResultSet rs = stt.executeQuery(query);
 			userProjectDTO.setIdProject(rs.getInt("id_projet"));
 			userProjectDTO.setIdUtilisateur((rs.getInt("id_utilisateur")));
