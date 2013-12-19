@@ -1,5 +1,8 @@
 package service.interfaces;
 
-public interface IUserService {
+import java.util.List;
+import dto.UserDTO;
 
+public interface IUserService {
+	List<UserDTO> listerUsers();
 }
