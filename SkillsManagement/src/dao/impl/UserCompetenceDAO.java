@@ -1,8 +1,8 @@
 package dao.impl;
 
 import dao.factory.FactoryDAO;
-import dao.interfaces.IUtilisateurCompetenceDAO;
-import dto.UtilisateurCompetenceDTO;
+import dao.interfaces.IUserCompetenceDAO;
+import dto.UserCompetenceDTO;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,17 +11,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
+public class UserCompetenceDAO implements IUserCompetenceDAO{
 
 	private Connection conn = null;
 	
-	public UtilisateurCompetenceDAO(FactoryDAO instance)
+	public UserCompetenceDAO(FactoryDAO instance)
 	{
 		this.conn = (Connection) instance;
 	}
 
 	@Override
-	public int updateUtilisateurCompetence(UtilisateurCompetenceDTO unDTO) {
+	public int updateUtilisateurCompetence(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUser();
 		int idComp = unDTO.getIdComp();
@@ -43,7 +43,7 @@ public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
 	}
 
 	@Override
-	public int insertUtilisateurCompetence(UtilisateurCompetenceDTO unDTO) {
+	public int insertUtilisateurCompetence(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUser();
 		int idComp = unDTO.getIdComp();
@@ -65,7 +65,7 @@ public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
 	}
 
 	@Override
-	public int deleteUtilisateurCompetence(UtilisateurCompetenceDTO unDTO) {
+	public int deleteUtilisateurCompetence(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUser();
 		int idComp = unDTO.getIdComp();
@@ -85,18 +85,18 @@ public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
 	}
 
 	@Override
-	public List<UtilisateurCompetenceDTO> getAllUtilisateurCompetence(){
+	public List<UserCompetenceDTO> getAllUtilisateurCompetence(){
 		// TODO Auto-generated method stub
 		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence";
 		ResultSet rs = null;
-		List<UtilisateurCompetenceDTO> listeDTO = new ArrayList<UtilisateurCompetenceDTO>();
+		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
 			Statement stt = this.conn.createStatement();
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurCompetenceDTO newDTO = new UtilisateurCompetenceDTO();
+				UserCompetenceDTO newDTO = new UserCompetenceDTO();
 				newDTO.setIdUser(rs.getInt("id_utilisateur"));
 				newDTO.setIdComp(rs.getInt("id_competence"));
 				newDTO.setNiveauComp(rs.getString("niveau_competence"));
@@ -112,19 +112,19 @@ public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
 	}
 
 	@Override
-	public List<UtilisateurCompetenceDTO> getUtilisateurCompetenceByIdUser(UtilisateurCompetenceDTO unDTO) {
+	public List<UserCompetenceDTO> getUtilisateurCompetenceByIdUser(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUser();
 		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE id_utilisateur = '"+idUser+"'";
 		ResultSet rs = null;
-		List<UtilisateurCompetenceDTO> listeDTO = new ArrayList<UtilisateurCompetenceDTO>();
+		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
 			Statement stt = this.conn.createStatement();
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurCompetenceDTO newDTO = new UtilisateurCompetenceDTO();
+				UserCompetenceDTO newDTO = new UserCompetenceDTO();
 				newDTO.setIdUser(rs.getInt("id_utilisateur"));
 				newDTO.setIdComp(rs.getInt("id_competence"));
 				newDTO.setNiveauComp(rs.getString("niveau_competence"));
@@ -140,19 +140,19 @@ public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
 	}
 
 	@Override
-	public List<UtilisateurCompetenceDTO> getUtilisateurCompetenceByNiveau(UtilisateurCompetenceDTO unDTO) {
+	public List<UserCompetenceDTO> getUtilisateurCompetenceByNiveau(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		String niveauComp = unDTO.getNiveauComp();
 		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE niveau_competence = '"+niveauComp+"'";
 		ResultSet rs = null;
-		List<UtilisateurCompetenceDTO> listeDTO = new ArrayList<UtilisateurCompetenceDTO>();
+		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
 			Statement stt = this.conn.createStatement();
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurCompetenceDTO newDTO = new UtilisateurCompetenceDTO();
+				UserCompetenceDTO newDTO = new UserCompetenceDTO();
 				newDTO.setIdUser(rs.getInt("id_utilisateur"));
 				newDTO.setIdComp(rs.getInt("id_competence"));
 				newDTO.setNiveauComp(rs.getString("niveau_competence"));
@@ -168,19 +168,19 @@ public class UtilisateurCompetenceDAO implements IUtilisateurCompetenceDAO{
 	}
 
 	@Override
-	public List<UtilisateurCompetenceDTO> getUtilisateurCompetenceByIdComp(UtilisateurCompetenceDTO unDTO) {
+	public List<UserCompetenceDTO> getUtilisateurCompetenceByIdComp(UserCompetenceDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idComp = unDTO.getIdComp();
 		String query = "SELECT id_utilisateur, id_competence, niveau_competence FROM utilisateur_competence WHERE id_competence = '"+idComp+"'";
 		ResultSet rs = null;
-		List<UtilisateurCompetenceDTO> listeDTO = new ArrayList<UtilisateurCompetenceDTO>();
+		List<UserCompetenceDTO> listeDTO = new ArrayList<UserCompetenceDTO>();
 		try
 		{
 			Statement stt = this.conn.createStatement();
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurCompetenceDTO newDTO = new UtilisateurCompetenceDTO();
+				UserCompetenceDTO newDTO = new UserCompetenceDTO();
 				newDTO.setIdUser(rs.getInt("id_utilisateur"));
 				newDTO.setIdComp(rs.getInt("id_competence"));
 				newDTO.setNiveauComp(rs.getString("niveau_competence"));

@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.factory.FactoryDAO;
-import dao.interfaces.IUtilisateurNotificationDAO;
-import dto.UtilisateurNotificationDTO;
+import dao.interfaces.IUserNotificationDAO;
+import dto.UserNotificationDTO;
 
-public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
+public class UserNotificationDAO implements IUserNotificationDAO {
 
 	private Connection conn = null;
 	
-	public UtilisateurNotificationDAO(FactoryDAO instance)
+	public UserNotificationDAO(FactoryDAO instance)
 	{
 		this.conn = instance.getConn();
 	}
 	@Override
-	public int insertUtilisateurNotification(UtilisateurNotificationDTO unDTO) {
+	public int insertUtilisateurNotification(UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNot = unDTO.getIdNotification();
 		int idUser = unDTO.getIdUtilisateur();
@@ -42,7 +42,7 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 	}
 
 	@Override
-	public int deleteUtilisateurNotification(UtilisateurNotificationDTO unDTO) {
+	public int deleteUtilisateurNotification(UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNot = unDTO.getIdNotification();
 		String query = "DELETE FROM utilisateur_notification WHERE id_notification = '"+idNot+"'";
@@ -62,7 +62,7 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 	}
 
 	@Override
-	public int updateUtilisateurNotification(UtilisateurNotificationDTO unDTO) {
+	public int updateUtilisateurNotification(UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNot = unDTO.getIdNotification();
 		int idUser = unDTO.getIdUtilisateur();
@@ -85,10 +85,10 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 	}
 
 	@Override
-	public List<UtilisateurNotificationDTO> getAllUtilisateurNotification() {
+	public List<UserNotificationDTO> getAllUtilisateurNotification() {
 		// TODO Auto-generated method stub
 		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification";
-		List<UtilisateurNotificationDTO> listeDTO = new ArrayList<UtilisateurNotificationDTO>();
+		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		
 		try
@@ -97,7 +97,7 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurNotificationDTO unDTO = new UtilisateurNotificationDTO();
+				UserNotificationDTO unDTO = new UserNotificationDTO();
 				unDTO.setIdNotification(rs.getInt("id_notification"));
 				unDTO.setIdUtilisateur(rs.getInt("id_utilisateur"));
 				unDTO.setIdNotificationPere(rs.getInt("id_notification_pere"));
@@ -113,12 +113,12 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 	}
 
 	@Override
-	public List<UtilisateurNotificationDTO> getUtilisateurNotificationByIdUtilisateur(UtilisateurNotificationDTO unDTO)
+	public List<UserNotificationDTO> getUtilisateurNotificationByIdUtilisateur(UserNotificationDTO unDTO)
 	{
 		// TODO Auto-generated method stub
 		int idUser = unDTO.getIdUtilisateur();
 		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_utilisateur = '"+idUser+"'";
-		List<UtilisateurNotificationDTO> listeDTO = new ArrayList<UtilisateurNotificationDTO>();
+		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		try
 		{
@@ -126,7 +126,7 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurNotificationDTO newUnDTO = new UtilisateurNotificationDTO();
+				UserNotificationDTO newUnDTO = new UserNotificationDTO();
 				unDTO.setIdNotification(rs.getInt("id_notification"));
 				unDTO.setIdUtilisateur(rs.getInt("id_utilisateur"));
 				unDTO.setIdNotificationPere(rs.getInt("id_notification_pere"));
@@ -142,11 +142,11 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 	}
 
 	@Override
-	public List<UtilisateurNotificationDTO> getUtilisateurNotificationByIdNotification(UtilisateurNotificationDTO unDTO) {
+	public List<UserNotificationDTO> getUtilisateurNotificationByIdNotification(UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNot = unDTO.getIdNotification();
 		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_notification = '"+idNot+"'";
-		List<UtilisateurNotificationDTO> listeDTO = new ArrayList<UtilisateurNotificationDTO>();
+		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		try
 		{
@@ -154,7 +154,7 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurNotificationDTO newUnDTO = new UtilisateurNotificationDTO();
+				UserNotificationDTO newUnDTO = new UserNotificationDTO();
 				unDTO.setIdNotification(rs.getInt("id_notification"));
 				unDTO.setIdUtilisateur(rs.getInt("id_utilisateur"));
 				unDTO.setIdNotificationPere(rs.getInt("id_notification_pere"));
@@ -169,12 +169,12 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 		return listeDTO;
 	}
 	@Override
-	public List<UtilisateurNotificationDTO> getUtilisateurNotificationByIdNotificationPere(
-			UtilisateurNotificationDTO unDTO) {
+	public List<UserNotificationDTO> getUtilisateurNotificationByIdNotificationPere(
+			UserNotificationDTO unDTO) {
 		// TODO Auto-generated method stub
 		int idNotPere = unDTO.getIdNotificationPere();
 		String query = "SELECT id_notification, id_utilisateur, id_notificatio_pere FROM utilisateur_notification WHERE id_notification_pere = '"+idNotPere+"'";
-		List<UtilisateurNotificationDTO> listeDTO = new ArrayList<UtilisateurNotificationDTO>();
+		List<UserNotificationDTO> listeDTO = new ArrayList<UserNotificationDTO>();
 		ResultSet rs = null;
 		try
 		{
@@ -182,7 +182,7 @@ public class UtilisateurNotificationDAO implements IUtilisateurNotificationDAO {
 			rs = stt.executeQuery(query);
 			while(rs.next())
 			{
-				UtilisateurNotificationDTO newUnDTO = new UtilisateurNotificationDTO();
+				UserNotificationDTO newUnDTO = new UserNotificationDTO();
 				unDTO.setIdNotification(rs.getInt("id_notification"));
 				unDTO.setIdUtilisateur(rs.getInt("id_utilisateur"));
 				unDTO.setIdNotificationPere(rs.getInt("id_notification_pere"));

@@ -10,8 +10,7 @@ import java.sql.SQLException;
 public class FactoryDAO
 {
 	private static FactoryDAO instance = null;
-
-
+	
     public Connection getConn() {
         return conn;
     }
