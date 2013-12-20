@@ -35,4 +35,8 @@ public abstract class AbstractDAOFactory
 		POSTGRES
 	}
 	
+	public AbstractDAOFactory()
+	{
+		
+	}
 }
