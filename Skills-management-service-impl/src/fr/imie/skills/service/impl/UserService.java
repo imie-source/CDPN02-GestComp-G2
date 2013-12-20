@@ -18,11 +18,16 @@ public class UserService implements IUserService {
 		int i =  AbstractDAOFactory.getDAOFactory().getUserDAO().insertUser(user);
 		return i;
 	}
+	
+	@Override
+	public int updateUser(UserDTO user) {
+		int i =  AbstractDAOFactory.getDAOFactory().getUserDAO().updateUser(user);
+		return i;
+	}
 
 	@Override
 	public int deletePromotion(UserDTO user) {
-		int i =  AbstractDAOFactory.getDAOFactory().getUserDAO().insertUser(user);
+		int i =  AbstractDAOFactory.getDAOFactory().getUserDAO().deleteUser(user);
 		return i;
 	}
-	
 }
