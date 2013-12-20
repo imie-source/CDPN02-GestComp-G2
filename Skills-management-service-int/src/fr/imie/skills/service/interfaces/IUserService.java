@@ -8,5 +8,7 @@ public interface IUserService {
 	
 	int createPromotion(UserDTO user);
 	
+	int updateUser(UserDTO user);
+	
 	int deletePromotion(UserDTO user);
 }
