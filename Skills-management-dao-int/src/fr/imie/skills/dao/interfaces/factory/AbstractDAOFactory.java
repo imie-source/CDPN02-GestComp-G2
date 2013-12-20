@@ -1,6 +1,5 @@
 package fr.imie.skills.dao.interfaces.factory;
 
-import fr.imie.skills.dao.interfaces.*;
 import fr.imie.skills.dao.interfaces.exception.DAOException;
 
 /**
