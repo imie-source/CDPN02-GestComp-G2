@@ -19,13 +19,19 @@ public class PromotionService implements IPromotionService
 	@Override
 	public int createPromotion(PromotionDTO promo)
 	{
-		int i =  AbstractDAOFactory.getDAOFactory().getPromotionDAO().insertPromotion(promo);
+		int i = AbstractDAOFactory.getDAOFactory().getPromotionDAO().insertPromotion(promo);
 		return i;
 	}
 
 	@Override
 	public int deletePromotion(PromotionDTO promo) {
-		int i =  AbstractDAOFactory.getDAOFactory().getPromotionDAO().deletePromotion(promo);
+		int i = AbstractDAOFactory.getDAOFactory().getPromotionDAO().deletePromotion(promo);
+		return i;
+	}
+
+	@Override
+	public int updatePromotion(PromotionDTO promo) {
+		int i = AbstractDAOFactory.getDAOFactory().getPromotionDAO().updatePromotion(promo);
 		return i;
 	}
 }

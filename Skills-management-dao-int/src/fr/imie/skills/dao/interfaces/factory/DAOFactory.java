@@ -18,7 +18,6 @@ import fr.imie.skills.dao.interfaces.IUserProjectDAO;
 
 public interface DAOFactory
 {
-
 	public  IPromotionDAO getPromotionDAO();
 
     public  ICompetenceDAO getCompetenceDAO();

@@ -25,10 +25,6 @@ public class PostgresDAOFactory implements DAOFactory
 
 	private Connection conn;
 	
-    public Connection getConn() {
-        return conn;
-    }
-	
 	public PostgresDAOFactory()
 	{
 		try
