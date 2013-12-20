@@ -34,4 +34,10 @@ public class PromotionService implements IPromotionService
 		int i = AbstractDAOFactory.getDAOFactory().getPromotionDAO().updatePromotion(promo);
 		return i;
 	}
+
+	@Override
+	public PromotionDTO getPromotionById(PromotionDTO promo) {
+		PromotionDTO promotion = AbstractDAOFactory.getDAOFactory().getPromotionDAO().getPromotionById(promo);
+		return promotion;
+	}
 }
