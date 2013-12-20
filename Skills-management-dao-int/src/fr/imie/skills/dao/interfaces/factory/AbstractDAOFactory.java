@@ -18,7 +18,7 @@ public abstract class AbstractDAOFactory
 		try {
 			switch (strategy) {
 				case POSTGRES:
-					return (DAOFactory) Class.forName("fr.imie.skills.dao.postgres.PostgresDAOFactory").newInstance();
+					return (DAOFactory) Class.forName("fr.imie.skills.dao.impl.PostgresDAOFactory").newInstance();
 				default:
 					throw new IllegalArgumentException("Unknown DAO strategy : " + strategy);
 			}

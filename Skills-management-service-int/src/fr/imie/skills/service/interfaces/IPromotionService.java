@@ -11,4 +11,6 @@ public interface IPromotionService
 	public int createPromotion(PromotionDTO promo);
 	
 	public int deletePromotion(PromotionDTO promo);
+	
+	public int updatePromotion(PromotionDTO promo);
 }
