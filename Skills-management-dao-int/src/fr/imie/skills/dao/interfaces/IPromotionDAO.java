@@ -1,0 +1,20 @@
+package fr.imie.skills.dao.interfaces;
+
+import java.util.List;
+
+import fr.imie.skills.dto.PromotionDTO;
+
+public interface IPromotionDAO {
+
+	public int updatePromotion(PromotionDTO promo);
+	
+	public int insertPromotion(PromotionDTO promo);
+	
+	public int deletePromotion(PromotionDTO promo);
+	
+	public PromotionDTO getPromotionById(PromotionDTO promo);
+	
+	public List<PromotionDTO> getAllPromotion();
+
+	public List<PromotionDTO> getPromotionByAnnee(PromotionDTO promo);
+}
