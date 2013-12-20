@@ -3,12 +3,13 @@ package fr.imie.skills.service.impl;
 import java.util.List;
 
 import fr.imie.skills.dao.interfaces.ICompetenceDAO;
+import fr.imie.skills.dao.interfaces.factory.AbstractDAOFactory;
 import fr.imie.skills.dto.CompetenceDTO;
 import fr.imie.skills.service.interfaces.ICompetenceService;
 
 public class CompetenceService implements ICompetenceService{
 
-private ICompetenceDAO competenceDAO;
+private ICompetenceDAO competenceDAO = AbstractDAOFactory.getDAOFactory().getCompetenceDAO();
 	
 	@Override
 	public void deleteCompetence(int idCompetence) {
