@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="Skills-management-jpa" transaction-type="RESOURCE_LOCAL">
+             <non-jta-data-source>java:/Skills-management-jpa</non-jta-data-source>
+             <class>model.Competence</class>
+             <class>model.Fonction</class>
+             <class>model.NatureDroit</class>
+             <class>model.Notification</class>
+             <class>model.Profil</class>
+             <class>model.ProfilFonctionNature</class>
+             <class>model.ProfilFonctionNaturePK</class>
+             <class>model.Projet</class>
+             <class>model.Promotion</class>
+             <class>model.Tache</class>
+             <class>model.Utilisateur</class>
+             <class>model.UtilisateurCompetence</class>
+             <class>model.UtilisateurCompetencePK</class>
+             <class>model.UtilisateurNotification</class>
+             <class>model.UtilisateurProfil</class>
+             <class>model.UtilisateurProfilPK</class>
+             <class>model.UtilisateurProjet</class>
+             <class>model.UtilisateurProjetPK</class>
+	</persistence-unit>
+</persistence>
